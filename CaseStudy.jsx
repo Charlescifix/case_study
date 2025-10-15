@@ -18,7 +18,7 @@ export default function IUFPCaseStudy() {
             body={<p className="text-sm/6 text-gray-900 font-semibold">Education Technology</p>} />
 
           <BlackSquare title="Timeline" kicker="Duration" icon={<GaugeCircle className="h-5 w-5" />}
-            body={<p className="text-sm/6 text-gray-900 font-semibold">6 months</p>} />
+            body={<p className="text-sm/6 text-gray-900 font-semibold">4 months</p>} />
 
           <BlackSquare title="Services" kicker="Scope" icon={<Sparkles className="h-5 w-5" />}
             body={<ul className="space-y-1 text-sm/6 text-gray-900 font-medium list-disc pl-4">
@@ -123,7 +123,7 @@ function Hero() {
 
         <div className="grid grid-cols-2 gap-3 w-full md:w-auto md:min-w-[240px]">
           <Stat title="Industry" value="EdTech" />
-          <Stat title="Timeline" value="6 months" />
+          <Stat title="Timeline" value="4 months" />
           <Stat title="Scope" value="VLE • RAG • DX" />
           <Stat title="Global" value="10+ countries" />
         </div>
@@ -177,8 +177,8 @@ function BlackSquare({
 
 function Stat({ title, value }) {
   return (
-    <div className="rounded-lg border border-gray-200 bg-gray-50 p-3 text-left">
-      <div className="text-[11px] uppercase tracking-wide text-gray-500">{title}</div>
+    <div className="rounded-lg border border-indigo-100 bg-gradient-to-br from-indigo-50/50 to-blue-50/50 p-3 text-left">
+      <div className="text-[11px] uppercase tracking-wide text-indigo-600/70">{title}</div>
       <div className="text-sm font-semibold text-gray-900">{value}</div>
     </div>
   );
@@ -243,7 +243,7 @@ function Testimonial() {
 
 function Footer() {
   return (
-    <div className="mt-12 flex flex-col items-center justify-between gap-4 rounded-xl border border-gray-200 bg-gray-50 p-5 text-xs text-gray-600 sm:flex-row">
+    <div className="mt-12 flex flex-col items-center justify-between gap-4 rounded-xl border border-gray-200 bg-gray-100 p-5 text-xs text-gray-600 sm:flex-row">
       <div>© {new Date().getFullYear()} IUFP · International University Foundation Programme</div>
       <a href="https://iufp-web.up.railway.app" target="_blank" rel="noreferrer" className="underline decoration-dotted underline-offset-4 hover:text-gray-900">
         iufp-web.up.railway.app
