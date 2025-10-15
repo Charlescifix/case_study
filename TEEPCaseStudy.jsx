@@ -1,67 +1,74 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { GraduationCap, Globe2, GaugeCircle, Sparkles, CheckCircle2, Quote } from "lucide-react";
+import { Server, ShieldCheck, Gauge, Rocket, CheckCircle2, Quote, Zap, GitBranch, ArrowLeft } from "lucide-react";
 
-// Replace logo src values with actual paths: /IUFP_LOGO.jpg and /ATHE_LOGO.png
-
-export default function IUFPCaseStudy() {
+export default function TEEPCaseStudy() {
   return (
     <div className="relative min-h-screen w-full overflow-x-hidden bg-white text-gray-900 scroll-smooth">
       <JellyBackdrop />
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+        <Link
+          to="/"
+          className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 transition-colors font-medium mb-6"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          Back to Case Studies
+        </Link>
         <Header />
 
         <Hero />
 
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <BlackSquare title="Industry" kicker="Context" icon={<Globe2 className="h-5 w-5" />}
-            body={<p className="text-sm/6 text-gray-900 font-semibold">Education Technology</p>} />
+          <BlackSquare title="Industry" kicker="Context" icon={<Server className="h-5 w-5" />}
+            body={<p className="text-sm/6 text-gray-900 font-semibold">Financial Technology</p>} />
 
-          <BlackSquare title="Timeline" kicker="Duration" icon={<GaugeCircle className="h-5 w-5" />}
-            body={<p className="text-sm/6 text-gray-900 font-semibold">4 months</p>} />
+          <BlackSquare title="Timeline" kicker="Duration" icon={<Gauge className="h-5 w-5" />}
+            body={<p className="text-sm/6 text-gray-900 font-semibold">45 days</p>} />
 
-          <BlackSquare title="Services" kicker="Scope" icon={<Sparkles className="h-5 w-5" />}
+          <BlackSquare title="Services" kicker="Scope" icon={<Rocket className="h-5 w-5" />}
             body={<ul className="space-y-1 text-sm/6 text-gray-900 font-medium list-disc pl-4">
-              <li>Multi-Tenant VLE Platform</li>
               <li>RAG Implementation</li>
-              <li>Digital Transformation</li>
+              <li>MLOps</li>
+              <li>Production System Architecture</li>
             </ul>} />
         </div>
 
         <Section id="situation" title="The Situation">
           <p className="text-gray-800 font-medium leading-relaxed">
-            Before the transformation, IUFP managed student applications, partner school coordination, and admissions
-            manually through paper-based forms, spreadsheets, and email exchanges. This created delays in processing,
-            inconsistencies in data tracking, and limited the ability to scale internationally. As IUFP expanded its
-            academic partnerships across multiple countries, the existing workflow could no longer sustain the growing
-            student volume or meet evolving compliance standards.
+            TEEP is a digital payments hub that consolidates airtime/data top-ups, TV/cable, tuition, and ticketing into one app.
+            Support teams needed instant, accurate answers to policy, process, and transaction‑safety questions across a growing
+            knowledge base. Traditional keyword search returned noisy or stale results and couldn't keep answers constrained to
+            compliance‑safe guidance.
           </p>
         </Section>
 
         <Section id="challenge" title="The Challenge">
           <p className="text-gray-800 font-medium leading-relaxed">
-            Off-the-shelf LMS or VLE solutions couldn't meet IUFP's complex requirements for a multi-tenant architecture,
-            partner school onboarding, and compliance with international education standards. The platform needed to serve
-            schools and students across diverse geographies while maintaining secure data isolation and localized
-            customization. Coordinating admissions, payments, and academic progress tracking across different partner
-            institutions added further technical and operational complexity.
+            The system had to deliver low‑latency, high‑precision retrieval with financial‑grade reliability and clean
+            integration to existing payment flows. Requirements included sub‑300 ms retrieval, 99.9% uptime, strict topic
+            guardrails (payments only), and seamless embedding into web/mobile surfaces—without adding new managed vector
+            infrastructure.
           </p>
         </Section>
 
         <Section id="solution" title="The Solution">
           <div className="grid gap-6 md:grid-cols-2">
-            <BlackSquare subtle title="Unified Multi‑Tenant VLE" body={
-              <p className="text-gray-800 text-sm/6 font-medium">
-                Centralizes student applications, partner management, admissions, and content delivery in a single secure portal.
-              </p>
+            <BlackSquare subtle title="Production RAG Stack" body={
+              <ul className="space-y-1 text-sm/6 text-gray-800 font-medium list-disc pl-4">
+                <li>FastAPI + PostgreSQL (<code className="text-gray-700 bg-gray-100 px-1 rounded">float[]</code> embeddings)</li>
+                <li>NumPy cosine similarity for in‑memory vector scoring</li>
+                <li>OpenAI GPT‑4 for grounded answer synthesis</li>
+                <li>AWS containerized deployment</li>
+              </ul>
             } />
 
-            <BlackSquare subtle title="Integrated Intelligence" body={
+            <BlackSquare subtle title="Performance & Guardrails" body={
               <ul className="space-y-1 text-sm/6 text-gray-800 font-medium list-disc pl-4">
-                <li>Retrieval‑Augmented Generation (RAG) for student assistance</li>
-                <li>AI dashboards for analytics and performance tracking</li>
-                <li>Automated workflows for admissions, payments, verification</li>
-                <li>Partner‑specific portals with secure data segregation</li>
+                <li>Chunked docs + lean prompts for <span className="font-bold">&lt;300 ms</span> retrieval</li>
+                <li>Environment‑scoped secrets; least‑privileged DB roles</li>
+                <li>HTTPS‑only, health checks, structured logging</li>
+                <li>CORS rules; routing + prompt guardrails to payments domains</li>
               </ul>
             } />
           </div>
@@ -84,19 +91,19 @@ function Header() {
     <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6">
       <div className="flex items-center gap-3 sm:gap-4">
         <img
-          src="/IUFP_LOGO.jpg"
-          alt="IUFP"
+          src="/TEEP_LOGO.jpg"
+          alt="TEEP"
           className="h-10 sm:h-12 w-auto object-contain drop-shadow-[0_6px_24px_rgba(255,255,255,0.08)]"
         />
         <span className="hidden sm:inline-block h-6 w-px bg-gray-300" />
-        <span className="text-xs text-gray-600 whitespace-nowrap">iufp-web.up.railway.app</span>
+        <span className="text-xs text-gray-600 whitespace-nowrap">teep.africa</span>
       </div>
-      <div className="rounded-md bg-gray-100 p-2 border border-gray-200">
-        <img
-          src="/ATHE_LOGO.png"
-          alt="ATHE Endorsed Programme"
-          className="h-6 sm:h-7 w-auto object-contain"
-        />
+      <div className="flex items-center gap-3 text-xs text-gray-600">
+        <Zap className="h-4 w-4" />
+        <span>&lt;300 ms Retrieval</span>
+        <span className="h-3 w-px bg-gray-300" />
+        <ShieldCheck className="h-4 w-4" />
+        <span>99.9% Uptime</span>
       </div>
     </div>
   );
@@ -110,22 +117,22 @@ function Hero() {
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 sm:gap-8">
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-[11px] text-indigo-700">
-            <GraduationCap className="h-3.5 w-3.5" />
+            <GitBranch className="h-3.5 w-3.5" />
             <span>Case Study</span>
           </div>
           <h1 className="mt-4 text-2xl/tight font-bold sm:text-3xl md:text-4xl lg:text-5xl text-gray-950">
-            IUFP: Digital Transformation for International Education
+            TEEP: Enterprise RAG System for Fintech
           </h1>
           <p className="mt-3 text-sm sm:text-base text-gray-700 max-w-xl font-medium">
-            A modern multi‑tenant VLE unifying global operations with AI‑powered assistance, analytics, and automated workflows.
+            Low‑latency, compliant retrieval‑augmented assistance embedded directly into payment flows—built for reliability and speed.
           </p>
         </div>
 
         <div className="grid grid-cols-2 gap-3 w-full md:w-auto md:min-w-[240px]">
-          <Stat title="Industry" value="EdTech" />
-          <Stat title="Timeline" value="4 months" />
-          <Stat title="Scope" value="VLE • RAG • DX" />
-          <Stat title="Global" value="10+ countries" />
+          <Stat title="Industry" value="FinTech" />
+          <Stat title="Uptime" value="99.9%" />
+          <Stat title="Retrieval" value="&lt;300 ms" />
+          <Stat title="Users" value="8,300" />
         </div>
       </div>
     </div>
@@ -179,7 +186,7 @@ function Stat({ title, value }) {
   return (
     <div className="rounded-lg border border-indigo-100 bg-gradient-to-br from-indigo-50/50 to-blue-50/50 p-3 text-left">
       <div className="text-[11px] uppercase tracking-wide text-indigo-600/70">{title}</div>
-      <div className="text-sm font-semibold text-gray-900">{value}</div>
+      <div className="text-sm font-semibold text-gray-900" dangerouslySetInnerHTML={{ __html: value }} />
     </div>
   );
 }
@@ -191,27 +198,30 @@ function ResultsSection() {
         <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-indigo-100" />
         <div className="relative">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-indigo-300 bg-indigo-100 px-4 py-1.5 text-xs font-medium text-indigo-700">
-            <Sparkles className="h-3.5 w-3.5" />
+            <Rocket className="h-3.5 w-3.5" />
             <span>Key Outcomes</span>
           </div>
           <h2 className="mb-2 text-2xl sm:text-3xl font-bold tracking-tight bg-gradient-to-r from-indigo-600 via-indigo-500 to-blue-600 bg-clip-text text-transparent">
             The Results
           </h2>
           <p className="mb-6 sm:mb-8 text-sm sm:text-base text-gray-700 max-w-2xl font-medium">
-            Measurable impact across operations, scalability, and efficiency
+            Measurable impact across performance, reliability, and cost-efficiency
           </p>
           <div className="grid gap-3 sm:gap-4 md:grid-cols-2 lg:grid-cols-3">
             {[
-              "5× faster application processing",
-              "10+ countries in partner network",
-              "Multi‑tenant architecture for independent ops",
-              "Manual → automated digital workflows",
-              "Real‑time progress & admissions tracking",
-              "Fewer admin hours & data errors",
+              "99.9% uptime maintained in production",
+              "Sub‑300 ms average retrieval time",
+              "~2.5k–5k queries/day via API & web widget",
+              "Seamless payment‑surface integration",
+              "High accuracy with grounded answers @ top‑K=3",
+              "Lower cost vs managed vector DB",
             ].map((t, i) => (
               <ResultBadge key={i} text={t} />
             ))}
           </div>
+          <p className="mt-6 text-xs text-gray-600 italic">
+            *Estimation based on 8,300 users, 1,000–4,000 daily transactions and typical support/query ratios; replace with live telemetry when available.
+          </p>
         </div>
       </div>
     </section>
@@ -233,10 +243,9 @@ function Testimonial() {
   return (
     <div className="relative overflow-hidden rounded-xl border border-gray-200 bg-white p-6">
       <p className="text-gray-800 text-base">
-        "The IUFP VLE has completely transformed how we manage our global academic network. We now have full visibility
-        of student applications, admissions, and partner operations—all within a single, intelligent system."
+        "Customers now get instant, accurate guidance inside the payment flow—fewer handoffs, faster resolutions, and greater trust in every transaction."
       </p>
-      <div className="mt-3 text-sm text-gray-600">— IUFP CEO Bola Makinde</div>
+      <div className="mt-3 text-sm text-gray-600">— Teep CEO Chika Ibegbu</div>
     </div>
   );
 }
@@ -244,10 +253,20 @@ function Testimonial() {
 function Footer() {
   return (
     <div className="mt-12 flex flex-col items-center justify-between gap-4 rounded-xl border border-gray-200 bg-gray-100 p-5 text-xs text-gray-600 sm:flex-row">
-      <div>© {new Date().getFullYear()} IUFP · International University Foundation Programme</div>
-      <a href="https://iufp-web.up.railway.app" target="_blank" rel="noreferrer" className="underline decoration-dotted underline-offset-4 hover:text-gray-900">
-        iufp-web.up.railway.app
-      </a>
+      <div>© {new Date().getFullYear()} TEEP · Enterprise RAG for Fintech</div>
+      <div className="flex items-center gap-3">
+        <a href="https://teep.africa" target="_blank" rel="noreferrer" className="underline decoration-dotted underline-offset-4 hover:text-gray-900">
+          teep.africa
+        </a>
+        <span className="h-3 w-px bg-gray-300" />
+        <a href="#results" className="underline decoration-dotted underline-offset-4 hover:text-gray-900">
+          See Results
+        </a>
+        <span className="h-3 w-px bg-gray-300" />
+        <a href="#solution" className="underline decoration-dotted underline-offset-4 hover:text-gray-900">
+          Architecture
+        </a>
+      </div>
     </div>
   );
 }
