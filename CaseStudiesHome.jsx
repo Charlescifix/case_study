@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, School, Bot, ExternalLink } from "lucide-react";
+import { ArrowRight, School, Bot, ExternalLink, Calendar } from "lucide-react";
+import { InlineWidget } from "react-calendly";
 
 export default function CaseStudiesHome() {
   return (
@@ -58,6 +59,34 @@ export default function CaseStudiesHome() {
             footerText="teep.africa"
           />
         </main>
+
+        <section id="contact" className="mt-16 sm:mt-20 scroll-mt-20">
+          <div className="relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-8 sm:p-10 shadow-lg">
+            <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-gray-100" />
+            <div className="pointer-events-none absolute inset-0 rounded-2xl [background:radial-gradient(80px_80px_at_50%_0%,rgba(99,102,241,0.04),transparent)]" />
+
+            <div className="relative text-center mb-8">
+              <div className="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-indigo-50 px-4 py-1.5 text-xs text-indigo-700 font-medium mb-4">
+                <Calendar className="h-4 w-4" />
+                <span>Let's Connect</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-950">Schedule a Discovery Call</h2>
+              <p className="mt-2 text-sm sm:text-base text-gray-700 font-medium max-w-2xl mx-auto">
+                Discuss your project needs and explore how we can work together to build scalable solutions.
+              </p>
+            </div>
+
+            <div className="relative">
+              <InlineWidget
+                url={import.meta.env.VITE_CALENDLY_URL}
+                styles={{
+                  height: '700px',
+                  minWidth: '100%'
+                }}
+              />
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   );
@@ -109,7 +138,7 @@ function StudyCard({
       </ul>
 
       <div className="relative mt-6 flex items-center justify-between border-t border-gray-200 pt-4">
-        <span className="inline-flex items-center gap-2 text-sm text-gray-900 font-semibold">
+        <span className="inline-flex items-center gap-2 text-sm text-indigo-600 font-semibold group-hover:text-indigo-700 transition-colors">
           View case
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
         </span>
