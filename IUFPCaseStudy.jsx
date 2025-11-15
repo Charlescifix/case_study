@@ -81,6 +81,7 @@ export default function IUFPCaseStudy() {
                 <li>AI dashboards for analytics and performance tracking</li>
                 <li>Automated workflows for admissions, payments, verification</li>
                 <li>Partner‑specific portals with secure data segregation</li>
+                <li>Compliance with international education standards and regulatory frameworks</li>
               </ul>
             } />
           </div>
