@@ -309,13 +309,13 @@ function Footer() {
           href="https://www.gen3block.com"
           target="_blank"
           rel="noreferrer"
-          className="group flex items-center gap-2 text-sm text-gray-600 hover:text-indigo-600 transition-all duration-300"
+          className="group flex items-center gap-2 text-xs text-gray-500 hover:text-gray-700 transition-all duration-500"
         >
-          <span className="font-medium">Powered by</span>
-          <span className="font-bold bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent group-hover:from-indigo-700 group-hover:to-blue-700 transition-all duration-300">
+          <span className="font-normal">Powered by</span>
+          <span className="font-semibold text-gray-600 group-hover:text-indigo-600/80 transition-all duration-500 group-hover:drop-shadow-[0_0_8px_rgba(99,102,241,0.3)]">
             Gen3block AI
           </span>
-          <Sparkles className="h-4 w-4 text-indigo-500 group-hover:text-indigo-600 transition-colors" />
+          <Sparkles className="h-3.5 w-3.5 text-gray-400 group-hover:text-indigo-400 opacity-60 group-hover:opacity-100 transition-all duration-500 group-hover:drop-shadow-[0_0_6px_rgba(99,102,241,0.4)]" />
         </a>
       </div>
     </div>
