@@ -297,11 +297,27 @@ function Testimonial() {
 
 function Footer() {
   return (
-    <div className="mt-12 flex flex-col items-center justify-between gap-4 rounded-xl border border-gray-200 bg-gray-100 p-5 text-xs text-gray-600 sm:flex-row">
-      <div>© {new Date().getFullYear()} IUFP · International University Foundation Programme</div>
-      <a href="https://iufp-web.up.railway.app" target="_blank" rel="noreferrer" className="underline decoration-dotted underline-offset-4 hover:text-gray-900">
-        iufp-web.up.railway.app
-      </a>
+    <div className="mt-12 space-y-4">
+      <div className="flex flex-col items-center justify-between gap-4 rounded-xl border border-gray-200 bg-gray-100 p-5 text-xs text-gray-600 sm:flex-row">
+        <div>© {new Date().getFullYear()} IUFP · International University Foundation Programme</div>
+        <a href="https://iufp-web.up.railway.app" target="_blank" rel="noreferrer" className="underline decoration-dotted underline-offset-4 hover:text-gray-900">
+          iufp-web.up.railway.app
+        </a>
+      </div>
+      <div className="flex items-center justify-center gap-2 py-4">
+        <a
+          href="https://www.gen3block.com"
+          target="_blank"
+          rel="noreferrer"
+          className="group flex items-center gap-2 text-sm text-gray-600 hover:text-indigo-600 transition-all duration-300"
+        >
+          <span className="font-medium">Powered by</span>
+          <span className="font-bold bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent group-hover:from-indigo-700 group-hover:to-blue-700 transition-all duration-300">
+            Gen3block AI
+          </span>
+          <Sparkles className="h-4 w-4 text-indigo-500 group-hover:text-indigo-600 transition-colors" />
+        </a>
+      </div>
     </div>
   );
 }
