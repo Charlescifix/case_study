@@ -19,6 +19,8 @@ export default function IUFPCaseStudy() {
         </Link>
         <Header />
 
+        <Navigation />
+
         <Hero />
 
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -36,6 +38,15 @@ export default function IUFPCaseStudy() {
             </ul>} />
         </div>
 
+        <Section id="about" title="About IUFP">
+          <p className="text-gray-800 font-medium leading-relaxed">
+            The International University Foundation Programme (IUFP) is a pre-degree, full-time university foundation
+            course offering a fast-track alternative route to first-year degree entry after 9–12 months of intensive study —
+            without the need to undertake the GCE A-Levels course. Designed for students seeking direct university access,
+            IUFP provides internationally recognised qualifications through partnerships with institutions across multiple countries.
+          </p>
+        </Section>
+
         <Section id="situation" title="The Situation">
           <p className="text-gray-800 font-medium leading-relaxed">
             Before the transformation, IUFP managed student applications, partner school coordination, and admissions
@@ -50,8 +61,8 @@ export default function IUFPCaseStudy() {
           <p className="text-gray-800 font-medium leading-relaxed">
             Off-the-shelf LMS or VLE solutions couldn't meet IUFP's complex requirements for a multi-tenant architecture,
             partner school onboarding, and compliance with international education standards. The platform needed to serve
-            schools and students across diverse geographies while maintaining secure data isolation and localized
-            customization. Coordinating admissions, payments, and academic progress tracking across different partner
+            schools and students across diverse geographies while maintaining secure data isolation and localised
+            customisation. Coordinating admissions, payments, and academic progress tracking across different partner
             institutions added further technical and operational complexity.
           </p>
         </Section>
@@ -60,7 +71,7 @@ export default function IUFPCaseStudy() {
           <div className="grid gap-6 md:grid-cols-2">
             <BlackSquare subtle title="Unified Multi‑Tenant VLE" body={
               <p className="text-gray-800 text-sm/6 font-medium">
-                Centralizes student applications, partner management, admissions, and content delivery in a single secure portal.
+                Centralises student applications, partner management, admissions, and content delivery in a single secure portal.
               </p>
             } />
 
@@ -107,6 +118,40 @@ function Header() {
         />
       </div>
     </div>
+  );
+}
+
+function Navigation() {
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const navItems = [
+    { id: 'about', label: 'About' },
+    { id: 'situation', label: 'Situation' },
+    { id: 'challenge', label: 'Challenge' },
+    { id: 'solution', label: 'Solution' },
+    { id: 'results', label: 'Results' },
+    { id: 'impact', label: 'Impact' },
+  ];
+
+  return (
+    <nav className="mt-6 sticky top-0 z-20 bg-white/80 backdrop-blur-md border border-gray-200 rounded-xl shadow-sm">
+      <div className="flex items-center justify-center gap-2 p-3 overflow-x-auto">
+        {navItems.map((item) => (
+          <button
+            key={item.id}
+            onClick={() => scrollToSection(item.id)}
+            className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors whitespace-nowrap"
+          >
+            {item.label}
+          </button>
+        ))}
+      </div>
+    </nav>
   );
 }
 
