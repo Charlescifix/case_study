@@ -188,7 +188,7 @@ function Hero() {
 
 function Section({ id, title, children }) {
   return (
-    <section id={id} className="mt-8 sm:mt-12">
+    <section id={id} className="mt-8 sm:mt-12 scroll-mt-24">
       <h2 className="mb-4 text-xl sm:text-2xl font-bold tracking-tight text-gray-950">{title}</h2>
       <BlackSquare>{children}</BlackSquare>
     </section>
@@ -240,7 +240,7 @@ function Stat({ title, value }) {
 
 function ResultsSection() {
   return (
-    <section id="results" className="mt-12 sm:mt-16">
+    <section id="results" className="mt-12 sm:mt-16 scroll-mt-24">
       <div className="relative overflow-hidden rounded-2xl border border-indigo-200 bg-gradient-to-br from-indigo-50 via-white to-blue-50 p-6 sm:p-8 md:p-10 shadow-xl">
         <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-indigo-100" />
         <div className="relative">
