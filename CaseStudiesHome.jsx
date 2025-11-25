@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, School, Bot, ExternalLink, Calendar } from "lucide-react";
+import { ArrowRight, School, Bot, ExternalLink, Calendar, HeartHandshake } from "lucide-react";
 import { InlineWidget } from "react-calendly";
 
 export default function CaseStudiesHome() {
@@ -15,7 +15,7 @@ export default function CaseStudiesHome() {
             <p className="text-[11px] uppercase tracking-widest text-indigo-600/70">Case Studies</p>
             <h1 className="mt-1 text-3xl font-bold sm:text-4xl md:text-5xl text-gray-950">Selected Work</h1>
             <p className="mt-2 max-w-2xl text-sm sm:text-base text-gray-700 font-medium">
-              Deep dives into real implementations across education and fintech—built with scalable AI, strong security, and clean UX.
+              Deep dives into real implementations across education, fintech, and social support—built with scalable AI, strong security, and clean UX.
             </p>
           </div>
           <a
@@ -26,7 +26,7 @@ export default function CaseStudiesHome() {
           </a>
         </header>
 
-        <main className="mt-8 sm:mt-10 grid gap-6 md:grid-cols-2">
+        <main className="mt-8 sm:mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <StudyCard
             href="/iufp"
             logoSrc="/IUFP_LOGO.jpg"
@@ -57,6 +57,22 @@ export default function CaseStudiesHome() {
             tagText="FinTech"
             footerHref="https://teep.africa"
             footerText="teep.africa"
+          />
+
+          <StudyCard
+            href="/uid"
+            logoSrc="/UID_LOGO.png"
+            title="Unity in Diversity (UiD): Digital Assistance Platform"
+            subtitle="Risk‑aware triage · Case management · GDPR compliant"
+            bullets={[
+              "Structured intake with intelligent triage",
+              "Single operational view of live cases",
+              "Auditable governance & data protection",
+            ]}
+            tagIcon={<HeartHandshake className="h-4 w-4" />}
+            tagText="Social Support"
+            footerHref="#"
+            footerText="Unity in Diversity"
           />
         </main>
 
