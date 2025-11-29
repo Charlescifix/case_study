@@ -28,6 +28,22 @@ export default function CaseStudiesHome() {
 
         <main className="mt-8 sm:mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <StudyCard
+            href="/uid"
+            logoSrc="/UID_LOGO.png"
+            title="Unity in Diversity (UiD): Digital Assistance Platform"
+            subtitle="Risk‑aware triage · Case management · GDPR compliant"
+            bullets={[
+              "Structured intake with intelligent triage",
+              "Single operational view of live cases",
+              "Auditable governance & data protection",
+            ]}
+            tagIcon={<HeartHandshake className="h-4 w-4" />}
+            tagText="Social Support"
+            footerHref="#"
+            footerText="Unity in Diversity"
+          />
+
+          <StudyCard
             href="/iufp"
             logoSrc="/IUFP_LOGO.jpg"
             title="IUFP: Digital Transformation for International Education"
@@ -57,22 +73,6 @@ export default function CaseStudiesHome() {
             tagText="FinTech"
             footerHref="https://teep.africa"
             footerText="teep.africa"
-          />
-
-          <StudyCard
-            href="/uid"
-            logoSrc="/UID_LOGO.png"
-            title="Unity in Diversity (UiD): Digital Assistance Platform"
-            subtitle="Risk‑aware triage · Case management · GDPR compliant"
-            bullets={[
-              "Structured intake with intelligent triage",
-              "Single operational view of live cases",
-              "Auditable governance & data protection",
-            ]}
-            tagIcon={<HeartHandshake className="h-4 w-4" />}
-            tagText="Social Support"
-            footerHref="#"
-            footerText="Unity in Diversity"
           />
         </main>
 
