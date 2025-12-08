@@ -24,19 +24,25 @@ export default function UIDCaseStudy() {
         <Hero />
 
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <BlackSquare title="Industry" kicker="Context" icon={<HeartHandshake className="h-5 w-5" />}
-            body={<p className="text-sm/6 text-gray-900 font-semibold">Social Support · Charity Tech</p>} />
+          <div className="bg-gradient-to-br from-blue-50 via-indigo-50/50 to-purple-50/30 rounded-xl p-1">
+            <BlackSquare title="Industry" kicker="Context" icon={<HeartHandshake className="h-5 w-5" />}
+              body={<p className="text-sm/6 text-gray-900 font-semibold">Social Support · Charity Tech</p>} />
+          </div>
 
-          <BlackSquare title="Timeline" kicker="Status" icon={<GaugeCircle className="h-5 w-5" />}
-            body={<p className="text-sm/6 text-gray-900 font-semibold">Ongoing (Updated Nov 2025)</p>} />
+          <div className="bg-gradient-to-br from-emerald-50 via-teal-50/50 to-cyan-50/30 rounded-xl p-1">
+            <BlackSquare title="Timeline" kicker="Status" icon={<GaugeCircle className="h-5 w-5" />}
+              body={<p className="text-sm/6 text-gray-900 font-semibold">Ongoing (Updated Nov 2025)</p>} />
+          </div>
 
-          <BlackSquare title="Services" kicker="Scope" icon={<Layers className="h-5 w-5" />}
-            body={<ul className="space-y-1 text-sm/6 text-gray-900 font-medium list-disc pl-4">
-              <li>Digital Assistance Platform (SPA)</li>
-              <li>Risk‑Aware Triage Engine</li>
-              <li>Admin Portal & Case Management</li>
-              <li>Data Protection by Design</li>
-            </ul>} />
+          <div className="bg-gradient-to-br from-violet-50 via-purple-50/50 to-pink-50/30 rounded-xl p-1">
+            <BlackSquare title="Services" kicker="Scope" icon={<Layers className="h-5 w-5" />}
+              body={<ul className="space-y-1 text-sm/6 text-gray-900 font-medium list-disc pl-4">
+                <li>Digital Assistance Platform (SPA)</li>
+                <li>Risk‑Aware Triage Engine</li>
+                <li>Admin Portal & Case Management</li>
+                <li>Data Protection by Design</li>
+              </ul>} />
+          </div>
         </div>
 
         <Section id="background" title="Background">
@@ -144,7 +150,7 @@ export default function UIDCaseStudy() {
 
 function Header() {
   return (
-    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6">
+    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 bg-gradient-to-r from-gray-50/50 via-blue-50/30 to-indigo-50/40 rounded-xl p-4 border border-gray-100 shadow-sm">
       <div className="flex items-center gap-3 sm:gap-4">
         <img
           src="/UID_LOGO.png" // replace with actual path
@@ -152,7 +158,7 @@ function Header() {
           className="h-10 sm:h-12 w-auto object-contain drop-shadow-[0_6px_24px_rgba(255,255,255,0.08)]"
         />
         <span className="hidden sm:inline-block h-6 w-px bg-gray-300" />
-        <span className="text-xs text-gray-600 whitespace-nowrap">Unity in Diversity</span>
+        <a href="https://www.theuid.uk" target="_blank" rel="noreferrer" className="text-xs text-gray-600 hover:text-gray-900 whitespace-nowrap transition-colors">Unity in Diversity</a>
       </div>
       <div className="flex items-center gap-3 text-xs text-gray-600">
         <ShieldCheck className="h-4 w-4" />
@@ -201,8 +207,8 @@ function Navigation() {
 
 function Hero() {
   return (
-    <div className="relative mt-6 sm:mt-10 overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 md:p-10 shadow-lg">
-      <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-gray-100" />
+    <div className="relative mt-6 sm:mt-10 overflow-hidden rounded-2xl border border-indigo-200 bg-gradient-to-br from-indigo-50/60 via-white to-blue-50/40 p-6 sm:p-8 md:p-10 shadow-lg">
+      <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-indigo-100/50" />
 
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 sm:gap-8">
         <div className="max-w-3xl">
@@ -230,8 +236,23 @@ function Hero() {
 }
 
 function Section({ id, title, children }) {
+  // Color scheme rotation for sections
+  const sectionColors = {
+    background: "bg-gradient-to-br from-blue-50/40 via-white to-indigo-50/30",
+    objectives: "bg-gradient-to-br from-purple-50/40 via-white to-pink-50/30",
+    solution: "bg-gradient-to-br from-indigo-50/40 via-white to-blue-50/30",
+    intake: "bg-gradient-to-br from-emerald-50/40 via-white to-teal-50/30",
+    governance: "bg-gradient-to-br from-amber-50/40 via-white to-orange-50/30",
+    outcomes: "bg-gradient-to-br from-rose-50/40 via-white to-pink-50/30",
+    blueprint: "bg-gradient-to-br from-violet-50/40 via-white to-purple-50/30",
+    next: "bg-gradient-to-br from-cyan-50/40 via-white to-sky-50/30",
+    impact: "bg-gradient-to-br from-indigo-50/40 via-white to-blue-50/30"
+  };
+
+  const bgColor = sectionColors[id] || "bg-white";
+
   return (
-    <section id={id} className="mt-8 sm:mt-12 scroll-mt-24">
+    <section id={id} className={`mt-8 sm:mt-12 scroll-mt-24 rounded-2xl p-6 sm:p-8 ${bgColor} border border-gray-100 shadow-sm`}>
       <h2 className="mb-4 text-xl sm:text-2xl font-bold tracking-tight text-gray-950">{title}</h2>
       <BlackSquare>{children}</BlackSquare>
     </section>
@@ -328,11 +349,12 @@ function ResultBadge({ text }) {
 
 function Testimonial() {
   return (
-    <div className="relative overflow-hidden rounded-xl border border-gray-200 bg-white p-6">
-      <p className="text-gray-800 text-base">
+    <div className="relative overflow-hidden rounded-xl border border-indigo-200 bg-gradient-to-br from-indigo-50/50 via-blue-50/30 to-white p-6 shadow-md">
+      <Quote className="h-8 w-8 text-indigo-300 mb-3" />
+      <p className="text-gray-800 text-base font-medium leading-relaxed">
         "The platform turns website visits into structured, trackable support journeys—and gives us the data to keep improving our service."
       </p>
-      <div className="mt-3 text-sm text-gray-600">— UiD Leadership</div>
+      <div className="mt-4 text-sm text-gray-600 font-medium">— Allan Johnson-Mwangi, UID Director</div>
     </div>
   );
 }
@@ -340,7 +362,7 @@ function Testimonial() {
 function Footer() {
   return (
     <div className="mt-12 space-y-4">
-      <div className="flex flex-col items-center justify-between gap-4 rounded-xl border border-gray-200 bg-gray-100 p-5 text-xs text-gray-600 sm:flex-row">
+      <div className="flex flex-col items-center justify-between gap-4 rounded-xl border border-gray-200 bg-gradient-to-r from-gray-100 via-blue-50/30 to-indigo-50/30 p-5 text-xs text-gray-600 sm:flex-row shadow-sm">
         <div>© {new Date().getFullYear()} Unity in Diversity · Digital Assistance Platform</div>
         <div className="flex items-center gap-3">
           <a href="#results" className="underline decoration-dotted underline-offset-4 hover:text-gray-900">See Results</a>
