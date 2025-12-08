@@ -39,8 +39,8 @@ export default function CaseStudiesHome() {
             ]}
             tagIcon={<HeartHandshake className="h-4 w-4" />}
             tagText="Social Support"
-            footerHref="#"
-            footerText="Unity in Diversity"
+            footerHref="https://www.theuid.uk"
+            footerText="www.theuid.uk"
           />
 
           <StudyCard
