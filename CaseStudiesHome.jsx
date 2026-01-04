@@ -55,8 +55,8 @@ export default function CaseStudiesHome() {
             ]}
             tagIcon={<School className="h-4 w-4" />}
             tagText="EdTech"
-            footerHref="https://iufp-web.up.railway.app"
-            footerText="iufp-web.up.railway.app"
+            footerHref="https://iufp.org.uk"
+            footerText="iufp.org.uk"
           />
 
           <StudyCard

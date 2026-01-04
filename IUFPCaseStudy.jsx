@@ -109,7 +109,7 @@ function Header() {
           className="h-10 sm:h-12 w-auto object-contain drop-shadow-[0_6px_24px_rgba(255,255,255,0.08)]"
         />
         <span className="hidden sm:inline-block h-6 w-px bg-gray-300" />
-        <span className="text-xs text-gray-600 whitespace-nowrap">iufp-web.up.railway.app</span>
+        <span className="text-xs text-gray-600 whitespace-nowrap">iufp.org.uk</span>
       </div>
       <div className="rounded-md bg-gray-100 p-2 border border-gray-200">
         <img
@@ -300,8 +300,8 @@ function Footer() {
     <div className="mt-12 space-y-4">
       <div className="flex flex-col items-center justify-between gap-4 rounded-xl border border-gray-200 bg-gray-100 p-5 text-xs text-gray-600 sm:flex-row">
         <div>© {new Date().getFullYear()} IUFP · International University Foundation Programme</div>
-        <a href="https://iufp-web.up.railway.app" target="_blank" rel="noreferrer" className="underline decoration-dotted underline-offset-4 hover:text-gray-900">
-          iufp-web.up.railway.app
+        <a href="https://iufp.org.uk" target="_blank" rel="noreferrer" className="underline decoration-dotted underline-offset-4 hover:text-gray-900">
+          iufp.org.uk
         </a>
       </div>
       <div className="flex items-center justify-center gap-2 py-4">
