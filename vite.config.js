@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
+  base: '/case_study/',
   preview: {
     port: process.env.PORT || 4173,
     host: '0.0.0.0',
