@@ -93,13 +93,23 @@ export default function CaseStudiesHome() {
             </div>
 
             <div className="relative">
-              <InlineWidget
-                url={import.meta.env.VITE_CALENDLY_URL}
-                styles={{
-                  height: '700px',
-                  minWidth: '100%'
-                }}
-              />
+              {import.meta.env.VITE_CALENDLY_URL ? (
+                <InlineWidget
+                  url={import.meta.env.VITE_CALENDLY_URL}
+                  styles={{
+                    height: '700px',
+                    minWidth: '100%'
+                  }}
+                  pageSettings={{
+                    hideEventTypeDetails: false,
+                    hideLandingPageDetails: false,
+                  }}
+                />
+              ) : (
+                <div className="text-center py-12 text-gray-600">
+                  <p>Calendar widget is currently unavailable. Please contact us directly.</p>
+                </div>
+              )}
             </div>
           </div>
         </section>
