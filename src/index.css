@@ -8,18 +8,20 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-tap-highlight-color: transparent;
-  }
-
-  body {
-    overscroll-behavior-y: none;
-    -webkit-overflow-scrolling: touch;
-    touch-action: pan-y;
     overflow-x: hidden;
   }
 
-  /* Prevent horizontal scrolling on mobile */
-  * {
+  body {
+    overscroll-behavior-x: none;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Prevent horizontal scrolling on mobile - only for images and iframes */
+  img, iframe, video {
     max-width: 100%;
+    height: auto;
   }
 }
 
