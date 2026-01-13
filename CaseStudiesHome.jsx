@@ -12,9 +12,9 @@ export default function CaseStudiesHome() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <header className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6">
           <div>
-            <p className="text-[11px] uppercase tracking-widest text-indigo-600/70">Case Studies</p>
-            <h1 className="mt-1 text-3xl font-bold sm:text-4xl md:text-5xl text-gray-950">Selected Work</h1>
-            <p className="mt-2 max-w-2xl text-sm sm:text-base text-gray-700 font-medium">
+            <p className="text-xs sm:text-[11px] uppercase tracking-widest text-indigo-600/70">Case Studies</p>
+            <h1 className="mt-1 text-2xl font-bold sm:text-4xl md:text-5xl text-gray-950">Selected Work</h1>
+            <p className="mt-2 max-w-2xl text-sm sm:text-base text-gray-700 font-medium leading-relaxed">
               Deep dives into real implementations across education, fintech, and social support—built with scalable AI, strong security, and clean UX.
             </p>
           </div>
@@ -26,7 +26,7 @@ export default function CaseStudiesHome() {
           </a>
         </header>
 
-        <main className="mt-8 sm:mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <main className="mt-8 sm:mt-10 grid gap-6 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
           <StudyCard
             href="/uid"
             logoSrc="/UID_LOGO.png"
@@ -76,18 +76,18 @@ export default function CaseStudiesHome() {
           />
         </main>
 
-        <section id="contact" className="mt-16 sm:mt-20 scroll-mt-20">
-          <div className="relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-8 sm:p-10 shadow-lg">
+        <section id="contact" className="mt-12 sm:mt-16 md:mt-20 scroll-mt-20">
+          <div className="relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 md:p-10 shadow-lg">
             <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-gray-100" />
             <div className="pointer-events-none absolute inset-0 rounded-2xl [background:radial-gradient(80px_80px_at_50%_0%,rgba(99,102,241,0.04),transparent)]" />
 
-            <div className="relative text-center mb-8">
-              <div className="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-indigo-50 px-4 py-1.5 text-xs text-indigo-700 font-medium mb-4">
-                <Calendar className="h-4 w-4" />
+            <div className="relative text-center mb-6 sm:mb-8">
+              <div className="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-indigo-50 px-3 sm:px-4 py-1.5 text-xs text-indigo-700 font-medium mb-3 sm:mb-4">
+                <Calendar className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                 <span>Let's Connect</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-950">Schedule a Discovery Call</h2>
-              <p className="mt-2 text-sm sm:text-base text-gray-700 font-medium max-w-2xl mx-auto">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-950">Schedule a Discovery Call</h2>
+              <p className="mt-2 text-sm sm:text-base text-gray-700 font-medium max-w-2xl mx-auto leading-relaxed">
                 Discuss your project needs and explore how we can work together to build scalable solutions.
               </p>
             </div>
@@ -97,7 +97,7 @@ export default function CaseStudiesHome() {
                 <InlineWidget
                   url={import.meta.env.VITE_CALENDLY_URL}
                   styles={{
-                    height: '700px',
+                    height: window.innerWidth < 640 ? '600px' : '700px',
                     minWidth: '100%'
                   }}
                   pageSettings={{
@@ -132,50 +132,51 @@ function StudyCard({
   return (
     <Link
       to={href}
-      className="group relative block overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+      className="group relative block overflow-hidden rounded-2xl border border-gray-200 bg-white p-5 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300"
     >
       <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-gray-100" />
       <div className="pointer-events-none absolute inset-0 rounded-2xl [background:radial-gradient(60px_60px_at_20px_20px,rgba(99,102,241,0.03),transparent),radial-gradient(60px_60px_at_calc(100%-20px)_calc(100%-20px),rgba(99,102,241,0.03),transparent)]" />
 
-      <div className="relative flex items-start justify-between gap-4">
+      <div className="relative flex items-start justify-between gap-3 sm:gap-4">
         <img
           src={logoSrc}
           alt="logo"
-          className="h-10 sm:h-12 w-auto object-contain drop-shadow-[0_6px_24px_rgba(255,255,255,0.08)]"
+          className="h-8 sm:h-10 md:h-12 w-auto object-contain drop-shadow-[0_6px_24px_rgba(255,255,255,0.08)]"
         />
-        <div className="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-[11px] text-indigo-700 font-medium">
+        <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-indigo-200 bg-indigo-50 px-2.5 sm:px-3 py-1 text-[10px] sm:text-[11px] text-indigo-700 font-medium whitespace-nowrap">
           {tagIcon}
           <span>{tagText}</span>
         </div>
       </div>
 
-      <h2 className="relative mt-4 text-lg sm:text-xl font-bold leading-snug text-gray-950">
+      <h2 className="relative mt-3 sm:mt-4 text-base sm:text-lg md:text-xl font-bold leading-snug text-gray-950">
         {title}
       </h2>
-      <p className="relative mt-1 text-sm text-gray-700 font-medium">{subtitle}</p>
+      <p className="relative mt-1 text-xs sm:text-sm text-gray-700 font-medium">{subtitle}</p>
 
-      <ul className="relative mt-4 grid gap-2">
+      <ul className="relative mt-3 sm:mt-4 grid gap-2">
         {bullets.map((b, i) => (
-          <li key={i} className="text-sm text-gray-800 font-medium flex items-start gap-2">
-            <span className="text-indigo-600 mt-0.5">•</span>
+          <li key={i} className="text-xs sm:text-sm text-gray-800 font-medium flex items-start gap-2">
+            <span className="text-indigo-600 mt-0.5 flex-shrink-0">•</span>
             <span>{b}</span>
           </li>
         ))}
       </ul>
 
-      <div className="relative mt-6 flex items-center justify-between border-t border-gray-200 pt-4">
-        <span className="inline-flex items-center gap-2 text-sm text-indigo-600 font-semibold group-hover:text-indigo-700 transition-colors">
+      <div className="relative mt-5 sm:mt-6 flex items-center justify-between border-t border-gray-200 pt-3 sm:pt-4">
+        <span className="inline-flex items-center gap-2 text-xs sm:text-sm text-indigo-600 font-semibold group-hover:text-indigo-700 transition-colors">
           View case
-          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1" />
         </span>
         <a
           href={footerHref}
           onClick={(e) => e.stopPropagation()}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-1 text-xs text-gray-600 hover:text-gray-900 transition-colors"
+          className="inline-flex items-center gap-1 text-[10px] sm:text-xs text-gray-600 hover:text-gray-900 transition-colors"
         >
-          {footerText} <ExternalLink className="h-3.5 w-3.5" />
+          <span className="hidden xs:inline">{footerText}</span>
+          <ExternalLink className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
         </a>
       </div>
     </Link>
