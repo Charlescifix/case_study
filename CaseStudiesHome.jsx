@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, School, Bot, ExternalLink, Calendar, HeartHandshake } from "lucide-react";
+import { ArrowRight, School, Bot, ExternalLink, Calendar, HeartHandshake, Play } from "lucide-react";
 import { InlineWidget } from "react-calendly";
 
 export default function CaseStudiesHome() {
@@ -41,6 +41,7 @@ export default function CaseStudiesHome() {
             tagText="Social Support"
             footerHref="https://www.theuid.uk"
             footerText="www.theuid.uk"
+            youtubeUrl=""
           />
 
           <StudyCard
@@ -57,6 +58,7 @@ export default function CaseStudiesHome() {
             tagText="EdTech"
             footerHref="https://iufp.org.uk"
             footerText="iufp.org.uk"
+            youtubeUrl=""
           />
 
           <StudyCard
@@ -73,6 +75,7 @@ export default function CaseStudiesHome() {
             tagText="FinTech"
             footerHref="https://teep.africa"
             footerText="teep.africa"
+            youtubeUrl=""
           />
         </main>
 
@@ -127,7 +130,8 @@ function StudyCard({
   tagIcon,
   tagText,
   footerHref,
-  footerText
+  footerText,
+  youtubeUrl
 }) {
   return (
     <Link
@@ -163,21 +167,37 @@ function StudyCard({
         ))}
       </ul>
 
-      <div className="relative mt-5 sm:mt-6 flex items-center justify-between border-t border-gray-200 pt-3 sm:pt-4">
-        <span className="inline-flex items-center gap-2 text-xs sm:text-sm text-indigo-600 font-semibold group-hover:text-indigo-700 transition-colors">
-          View case
-          <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1" />
-        </span>
+      {/* Website and YouTube links */}
+      <div className="relative mt-4 sm:mt-5 flex flex-wrap items-center gap-2 sm:gap-3">
         <a
           href={footerHref}
           onClick={(e) => e.stopPropagation()}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-1 text-[10px] sm:text-xs text-gray-600 hover:text-gray-900 transition-colors"
+          className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 bg-gray-50 px-2.5 sm:px-3 py-1.5 text-[10px] sm:text-xs text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors font-medium"
         >
-          <span className="hidden xs:inline">{footerText}</span>
           <ExternalLink className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+          <span>{footerText}</span>
         </a>
+        {youtubeUrl && (
+          <a
+            href={youtubeUrl}
+            onClick={(e) => e.stopPropagation()}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-full border border-red-200 bg-red-50 px-2.5 sm:px-3 py-1.5 text-[10px] sm:text-xs text-red-700 hover:bg-red-100 hover:text-red-800 transition-colors font-medium"
+          >
+            <Play className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+            <span>Watch Demo</span>
+          </a>
+        )}
+      </div>
+
+      <div className="relative mt-4 sm:mt-5 flex items-center border-t border-gray-200 pt-3 sm:pt-4">
+        <span className="inline-flex items-center gap-2 text-xs sm:text-sm text-indigo-600 font-semibold group-hover:text-indigo-700 transition-colors">
+          View case study
+          <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1" />
+        </span>
       </div>
     </Link>
   );

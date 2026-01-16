@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { HeartHandshake, GaugeCircle, ShieldCheck, ClipboardList, CheckCircle2, Quote, Layers, BarChart3, Sparkles, ArrowLeft } from "lucide-react";
+import { HeartHandshake, GaugeCircle, ShieldCheck, ClipboardList, CheckCircle2, Quote, Layers, BarChart3, Sparkles, ArrowLeft, ExternalLink, Play } from "lucide-react";
 
 // Unity in Diversity (UiD) – Digital Assistance Platform
 // NOTE: Replace the logo src with your actual path (e.g., /UID_LOGO.png). Website is optional.
@@ -191,7 +191,10 @@ function Navigation() {
 
   return (
     <nav className="mt-6 sticky top-0 z-20 bg-white/80 backdrop-blur-md border border-gray-200 rounded-xl shadow-sm">
-      <div className="flex items-center justify-center gap-2 p-2 sm:p-3 overflow-x-auto custom-scrollbar">
+      <div
+        className="flex items-center justify-center gap-2 p-2 sm:p-3 overflow-x-auto custom-scrollbar"
+        style={{ overscrollBehavior: 'contain', touchAction: 'pan-x pinch-zoom' }}
+      >
         {navItems.map((item) => (
           <button
             key={item.id}
@@ -223,6 +226,30 @@ function Hero() {
           <p className="mt-2 sm:mt-3 text-xs sm:text-sm md:text-base text-gray-700 max-w-xl font-medium leading-relaxed">
             Turning a static site into a risk‑aware, auditable case management platform with accessible intake, intelligent triage and a secure data backbone.
           </p>
+          {/* Quick Links */}
+          <div className="mt-4 flex flex-wrap items-center gap-2 sm:gap-3">
+            <a
+              href="https://www.theuid.uk"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors font-medium shadow-sm"
+            >
+              <ExternalLink className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+              <span>Visit Website</span>
+            </a>
+            {/* YouTube Demo Link - Add URL when available */}
+            {false && (
+              <a
+                href=""
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full border border-red-200 bg-red-50 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm text-red-700 hover:bg-red-100 hover:text-red-800 transition-colors font-medium shadow-sm"
+              >
+                <Play className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                <span>Watch Demo</span>
+              </a>
+            )}
+          </div>
         </div>
 
         <div className="grid grid-cols-2 gap-2 sm:gap-3 w-full md:w-auto md:min-w-[220px] lg:min-w-[240px]">
@@ -366,6 +393,8 @@ function Footer() {
       <div className="flex flex-col items-center justify-between gap-4 rounded-xl border border-gray-200 bg-gradient-to-r from-gray-100 via-blue-50/30 to-indigo-50/30 p-5 text-xs text-gray-600 sm:flex-row shadow-sm">
         <div>© {new Date().getFullYear()} Unity in Diversity · Digital Assistance Platform</div>
         <div className="flex items-center gap-3">
+          <a href="https://www.theuid.uk" target="_blank" rel="noreferrer" className="underline decoration-dotted underline-offset-4 hover:text-gray-900">theuid.uk</a>
+          <span className="h-3 w-px bg-gray-300" />
           <a href="#results" className="underline decoration-dotted underline-offset-4 hover:text-gray-900">See Results</a>
           <span className="h-3 w-px bg-gray-300" />
           <a href="#solution" className="underline decoration-dotted underline-offset-4 hover:text-gray-900">Architecture</a>

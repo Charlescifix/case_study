@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { GraduationCap, Globe2, GaugeCircle, Sparkles, CheckCircle2, Quote, ArrowLeft } from "lucide-react";
+import { GraduationCap, Globe2, GaugeCircle, Sparkles, CheckCircle2, Quote, ArrowLeft, ExternalLink, Play } from "lucide-react";
 
 // Replace logo src values with actual paths: /IUFP_LOGO.jpg and /ATHE_LOGO.png
 
@@ -141,7 +141,10 @@ function Navigation() {
 
   return (
     <nav className="mt-6 sticky top-0 z-20 bg-white/80 backdrop-blur-md border border-gray-200 rounded-xl shadow-sm">
-      <div className="flex items-center justify-center gap-2 p-2 sm:p-3 overflow-x-auto custom-scrollbar">
+      <div
+        className="flex items-center justify-center gap-2 p-2 sm:p-3 overflow-x-auto custom-scrollbar"
+        style={{ overscrollBehavior: 'contain', touchAction: 'pan-x pinch-zoom' }}
+      >
         {navItems.map((item) => (
           <button
             key={item.id}
@@ -173,6 +176,30 @@ function Hero() {
           <p className="mt-2 sm:mt-3 text-xs sm:text-sm md:text-base text-gray-700 max-w-xl font-medium leading-relaxed">
             A modern multi‑tenant VLE unifying global operations with AI‑powered assistance, analytics, and automated workflows.
           </p>
+          {/* Quick Links */}
+          <div className="mt-4 flex flex-wrap items-center gap-2 sm:gap-3">
+            <a
+              href="https://iufp.org.uk"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors font-medium shadow-sm"
+            >
+              <ExternalLink className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+              <span>Visit Website</span>
+            </a>
+            {/* YouTube Demo Link - Add URL when available */}
+            {false && (
+              <a
+                href=""
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full border border-red-200 bg-red-50 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm text-red-700 hover:bg-red-100 hover:text-red-800 transition-colors font-medium shadow-sm"
+              >
+                <Play className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                <span>Watch Demo</span>
+              </a>
+            )}
+          </div>
         </div>
 
         <div className="grid grid-cols-2 gap-2 sm:gap-3 w-full md:w-auto md:min-w-[220px] lg:min-w-[240px]">
