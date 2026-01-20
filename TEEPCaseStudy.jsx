@@ -158,7 +158,7 @@ function Hero() {
           <Stat title="Industry" value="FinTech" />
           <Stat title="Uptime" value="99.9%" />
           <Stat title="Retrieval" value="&lt;300 ms" />
-          <Stat title="Users" value="8,300" />
+          <Stat title="Users" value="3,500+" />
         </div>
       </div>
     </div>
@@ -246,7 +246,7 @@ function ResultsSection() {
             ))}
           </div>
           <p className="mt-5 sm:mt-6 text-[10px] sm:text-xs text-gray-600 italic">
-            *Estimation based on 8,300 users, 1,000–4,000 daily transactions and typical support/query ratios; replace with live telemetry when available.
+            *Estimation based on 3,500+ users, 1,000–4,000 daily transactions and typical support/query ratios; replace with live telemetry when available.
           </p>
         </div>
       </div>
