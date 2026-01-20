@@ -24,7 +24,7 @@ export default function TEEPCaseStudy() {
             body={<p className="text-sm/6 text-gray-900 font-semibold">Financial Technology</p>} />
 
           <BlackSquare title="Timeline" kicker="Duration" icon={<Gauge className="h-5 w-5" />}
-            body={<p className="text-sm/6 text-gray-900 font-semibold">45 days</p>} />
+            body={<p className="text-sm/6 text-gray-900 font-semibold">4-6 weeks</p>} />
 
           <BlackSquare title="Services" kicker="Scope" icon={<Rocket className="h-5 w-5" />}
             body={<ul className="space-y-1 text-sm/6 text-gray-900 font-medium list-disc pl-4">

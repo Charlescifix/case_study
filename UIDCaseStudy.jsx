@@ -30,8 +30,8 @@ export default function UIDCaseStudy() {
           </div>
 
           <div className="bg-gradient-to-br from-emerald-50 via-teal-50/50 to-cyan-50/30 rounded-xl p-1">
-            <BlackSquare title="Timeline" kicker="Status" icon={<GaugeCircle className="h-5 w-5" />}
-              body={<p className="text-sm/6 text-gray-900 font-semibold">Ongoing (Updated Nov 2025)</p>} />
+            <BlackSquare title="Timeline" kicker="Duration" icon={<GaugeCircle className="h-5 w-5" />}
+              body={<p className="text-sm/6 text-gray-900 font-semibold">6 - 8 weeks</p>} />
           </div>
 
           <div className="bg-gradient-to-br from-violet-50 via-purple-50/50 to-pink-50/30 rounded-xl p-1">
@@ -254,7 +254,7 @@ function Hero() {
 
         <div className="grid grid-cols-2 gap-2 sm:gap-3 w-full md:w-auto md:min-w-[220px] lg:min-w-[240px]">
           <Stat title="Industry" value="Social Support" />
-          <Stat title="Status" value="Ongoing" />
+          <Stat title="Status" value="Completed" />
           <Stat title="Scope" value="Platform • Triage" />
           <Stat title="Focus" value="GDPR Compliant" />
         </div>
