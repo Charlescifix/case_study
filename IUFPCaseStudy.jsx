@@ -32,18 +32,17 @@ export default function IUFPCaseStudy() {
 
           <BlackSquare title="Services" kicker="Scope" icon={<Sparkles className="h-5 w-5" />}
             body={<ul className="space-y-1 text-sm/6 text-gray-900 font-medium list-disc pl-4">
-              <li>Multi-Tenant VLE Platform</li>
-              <li>RAG Implementation</li>
-              <li>Digital Transformation</li>
+              <li>Multi‑Tenant VLE Platform</li>
+              <li>Partner Onboarding Automation</li>
+              <li>RBAC & Audit Compliance</li>
             </ul>} />
         </div>
 
         <Section id="about" title="About IUFP">
           <p className="text-gray-800 font-medium leading-relaxed">
-            The International University Foundation Programme (IUFP) is a pre-degree, full-time university foundation
-            course offering a fast-track alternative route to first-year degree entry after 9–12 months of intensive study —
-            without the need to undertake the GCE A-Levels course. Designed for students seeking direct university access,
-            IUFP provides internationally recognised qualifications through partnerships with institutions across multiple countries.
+            The IUFP is a pre-degree, full-time university foundation course offering a fast-track alternative route
+            to first-year degree entry after 9–12 months of intensive study — as a focused alternative to the traditional
+            A-Levels route.
           </p>
         </Section>
 
@@ -69,19 +68,35 @@ export default function IUFPCaseStudy() {
 
         <Section id="solution" title="The Solution">
           <div className="grid gap-6 md:grid-cols-2">
-            <BlackSquare subtle title="Unified Multi‑Tenant VLE" body={
-              <p className="text-gray-800 text-sm/6 font-medium">
-                Centralises student applications, partner management, admissions, and content delivery in a single secure portal.
-              </p>
+            <BlackSquare subtle title="Multi‑Tenant VLE Platform" body={
+              <ul className="space-y-1 text-sm/6 text-gray-800 font-medium list-disc pl-4">
+                <li>Categorised resource library with per‑school download tracking</li>
+                <li>Partner‑specific portals with isolated VLE credentials</li>
+                <li>30+ frontend pages serving students, partners, and admins</li>
+              </ul>
             } />
 
-            <BlackSquare subtle title="Integrated Intelligence" body={
+            <BlackSquare subtle title="Structured Application Pipeline" body={
               <ul className="space-y-1 text-sm/6 text-gray-800 font-medium list-disc pl-4">
-                <li>Retrieval‑Augmented Generation (RAG) for student assistance</li>
-                <li>AI dashboards for analytics and performance tracking</li>
-                <li>Automated workflows for admissions, payments, verification</li>
-                <li>Partner‑specific portals with secure data segregation</li>
-                <li>Compliance with international education standards and regulatory frameworks</li>
+                <li>Multi‑step status tracking: pending → under review → accepted/rejected</li>
+                <li>Document upload to S3 with file‑type and 5 MB size validation</li>
+                <li>Admin review dashboard with filtering and bulk actions</li>
+              </ul>
+            } />
+
+            <BlackSquare subtle title="Automated Partner Onboarding" body={
+              <ul className="space-y-1 text-sm/6 text-gray-800 font-medium list-disc pl-4">
+                <li>Self‑serve partner application with document submission</li>
+                <li>Admin approve/reject workflow with one‑click action</li>
+                <li>Auto‑provisioned VLE credentials and partner school record on approval</li>
+              </ul>
+            } />
+
+            <BlackSquare subtle title="Security & Compliance" body={
+              <ul className="space-y-1 text-sm/6 text-gray-800 font-medium list-disc pl-4">
+                <li>JWT authentication with bcrypt password hashing</li>
+                <li>6 role tiers with RBAC (Student → Super Admin)</li>
+                <li>Full audit logging, session management, and GDPR cookie consent</li>
               </ul>
             } />
           </div>
@@ -101,7 +116,7 @@ export default function IUFPCaseStudy() {
 
 function Header() {
   return (
-    <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 md:gap-6">
+    <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 md:gap-6 bg-gradient-to-r from-gray-50 via-blue-50/60 to-indigo-50/70 rounded-xl p-3 sm:p-4 border border-gray-200 shadow-sm">
       <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
         <img
           src="/IUFP_LOGO.jpg"
@@ -161,8 +176,8 @@ function Navigation() {
 
 function Hero() {
   return (
-    <div className="relative mt-4 sm:mt-6 md:mt-10 overflow-hidden rounded-2xl border border-gray-200 bg-white p-5 sm:p-6 md:p-8 lg:p-10 shadow-lg">
-      <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-gray-100" />
+    <div className="relative mt-4 sm:mt-6 md:mt-10 overflow-hidden rounded-2xl border border-indigo-300 bg-gradient-to-br from-indigo-50 via-white to-blue-50/70 p-5 sm:p-6 md:p-8 lg:p-10 shadow-lg">
+      <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-indigo-200" />
 
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-5 sm:gap-6 md:gap-8">
         <div className="max-w-3xl">
@@ -205,8 +220,8 @@ function Hero() {
         <div className="grid grid-cols-2 gap-2 sm:gap-3 w-full md:w-auto md:min-w-[220px] lg:min-w-[240px]">
           <Stat title="Industry" value="EdTech" />
           <Stat title="Timeline" value="4 months" />
-          <Stat title="Scope" value="VLE • RAG • DX" />
-          <Stat title="Global" value="10+ countries" />
+          <Stat title="Scope" value="VLE • RBAC • DX" />
+          <Stat title="Scale" value="10+ partners" />
         </div>
       </div>
     </div>
@@ -214,8 +229,18 @@ function Hero() {
 }
 
 function Section({ id, title, children }) {
+  const sectionColors = {
+    about: "bg-gradient-to-br from-blue-50 via-white to-indigo-50/60",
+    situation: "bg-gradient-to-br from-purple-50 via-white to-pink-50/60",
+    challenge: "bg-gradient-to-br from-amber-50 via-white to-orange-50/60",
+    solution: "bg-gradient-to-br from-indigo-50 via-white to-blue-50/60",
+    impact: "bg-gradient-to-br from-emerald-50 via-white to-teal-50/60"
+  };
+
+  const bgColor = sectionColors[id] || "bg-white";
+
   return (
-    <section id={id} className="mt-6 sm:mt-8 md:mt-12 scroll-mt-24">
+    <section id={id} className={`mt-6 sm:mt-8 md:mt-12 scroll-mt-24 rounded-2xl p-4 sm:p-6 md:p-8 ${bgColor} border border-gray-200 shadow-sm`}>
       <h2 className="mb-3 sm:mb-4 text-lg sm:text-xl md:text-2xl font-bold tracking-tight text-gray-950">{title}</h2>
       <BlackSquare>{children}</BlackSquare>
     </section>
@@ -258,7 +283,7 @@ function BlackSquare({
 
 function Stat({ title, value }) {
   return (
-    <div className="rounded-lg border border-indigo-100 bg-gradient-to-br from-indigo-50/50 to-blue-50/50 p-2 sm:p-2.5 md:p-3 text-left">
+    <div className="rounded-lg border border-indigo-200 bg-gradient-to-br from-indigo-100/70 to-blue-100/60 p-2 sm:p-2.5 md:p-3 text-left">
       <div className="text-[9px] sm:text-[10px] md:text-[11px] uppercase tracking-wide text-indigo-600/70">{title}</div>
       <div className="text-xs sm:text-sm font-semibold text-gray-900">{value}</div>
     </div>
@@ -283,12 +308,12 @@ function ResultsSection() {
           </p>
           <div className="grid gap-3 sm:gap-4 md:grid-cols-2 lg:grid-cols-3">
             {[
-              "5× faster application processing",
-              "10+ countries in partner network",
-              "Multi‑tenant architecture for independent ops",
-              "Manual → automated digital workflows",
-              "Real‑time progress & admissions tracking",
-              "Fewer admin hours & data errors",
+              "10+ partner schools supported with isolated multi‑tenant ops",
+              "6 RBAC roles enforcing least‑privilege access across the platform",
+              "Automated partner onboarding: apply → approve → VLE credentials provisioned",
+              "Structured application pipeline with real‑time status tracking",
+              "S3 + CloudFront CDN for secure document storage and delivery",
+              "Full audit trail with session management and force‑logout capability",
             ].map((t, i) => (
               <ResultBadge key={i} text={t} />
             ))}
@@ -312,7 +337,7 @@ function ResultBadge({ text }) {
 
 function Testimonial() {
   return (
-    <div className="relative overflow-hidden rounded-xl border border-gray-200 bg-white p-6">
+    <div className="relative overflow-hidden rounded-xl border border-indigo-300 bg-gradient-to-br from-indigo-50 via-blue-50/60 to-white p-6 shadow-md">
       <p className="text-gray-800 text-base">
         "The IUFP VLE has completely transformed how we manage our global academic network. We now have full visibility
         of student applications, admissions, and partner operations—all within a single, intelligent system."
@@ -325,7 +350,7 @@ function Testimonial() {
 function Footer() {
   return (
     <div className="mt-12 space-y-4">
-      <div className="flex flex-col items-center justify-between gap-4 rounded-xl border border-gray-200 bg-gray-100 p-5 text-xs text-gray-600 sm:flex-row">
+      <div className="flex flex-col items-center justify-between gap-4 rounded-xl border border-gray-200 bg-gradient-to-r from-gray-100 via-blue-50/60 to-indigo-50/60 p-5 text-xs text-gray-600 sm:flex-row shadow-sm">
         <div>© {new Date().getFullYear()} IUFP · International University Foundation Programme</div>
         <a href="https://iufp.org.uk" target="_blank" rel="noreferrer" className="underline decoration-dotted underline-offset-4 hover:text-gray-900">
           iufp.org.uk
@@ -359,8 +384,8 @@ function JellyBackdrop() {
         className="absolute -top-24 -left-24 h-[42rem] w-[42rem] rounded-full"
         style={{
           background:
-            "radial-gradient(closest-side, rgba(99,102,241,0.22), rgba(99,102,241,0.10) 40%, transparent 70%)",
-          filter: "blur(60px)",
+            "radial-gradient(closest-side, rgba(99,102,241,0.30), rgba(99,102,241,0.14) 40%, transparent 70%)",
+          filter: "blur(50px)",
         }}
       />
       <motion.div
@@ -370,8 +395,8 @@ function JellyBackdrop() {
         className="absolute -bottom-32 -right-28 h-[40rem] w-[40rem] rounded-full"
         style={{
           background:
-            "radial-gradient(closest-side, rgba(59,130,246,0.22), rgba(59,130,246,0.10) 40%, transparent 70%)",
-          filter: "blur(70px)",
+            "radial-gradient(closest-side, rgba(59,130,246,0.30), rgba(59,130,246,0.14) 40%, transparent 70%)",
+          filter: "blur(55px)",
         }}
       />
       <div className="absolute inset-0 bg-[radial-gradient(1200px_600px_at_80%_-10%,rgba(255,255,255,0.06),transparent)]" />

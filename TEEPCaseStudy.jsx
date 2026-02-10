@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Server, ShieldCheck, Gauge, Rocket, CheckCircle2, Quote, Zap, GitBranch, ArrowLeft, ExternalLink, Play } from "lucide-react";
+import { Server, ShieldCheck, Gauge, Rocket, CheckCircle2, Quote, Zap, GitBranch, ArrowLeft, ExternalLink, Play, Sparkles } from "lucide-react";
 
 export default function TEEPCaseStudy() {
   return (
@@ -278,19 +278,35 @@ function Testimonial() {
 
 function Footer() {
   return (
-    <div className="mt-12 flex flex-col items-center justify-between gap-4 rounded-xl border border-gray-200 bg-gray-100 p-5 text-xs text-gray-600 sm:flex-row">
-      <div>© {new Date().getFullYear()} TEEP · Enterprise RAG for Fintech</div>
-      <div className="flex items-center gap-3">
-        <a href="https://teep.africa" target="_blank" rel="noreferrer" className="underline decoration-dotted underline-offset-4 hover:text-gray-900">
-          teep.africa
-        </a>
-        <span className="h-3 w-px bg-gray-300" />
-        <a href="#results" className="underline decoration-dotted underline-offset-4 hover:text-gray-900">
-          See Results
-        </a>
-        <span className="h-3 w-px bg-gray-300" />
-        <a href="#solution" className="underline decoration-dotted underline-offset-4 hover:text-gray-900">
-          Architecture
+    <div className="mt-12 space-y-4">
+      <div className="flex flex-col items-center justify-between gap-4 rounded-xl border border-gray-200 bg-gradient-to-r from-gray-100 via-blue-50/60 to-indigo-50/60 p-5 text-xs text-gray-600 sm:flex-row shadow-sm">
+        <div>© {new Date().getFullYear()} TEEP · Enterprise RAG for Fintech</div>
+        <div className="flex items-center gap-3">
+          <a href="https://teep.africa" target="_blank" rel="noreferrer" className="underline decoration-dotted underline-offset-4 hover:text-gray-900">
+            teep.africa
+          </a>
+          <span className="h-3 w-px bg-gray-300" />
+          <a href="#results" className="underline decoration-dotted underline-offset-4 hover:text-gray-900">
+            See Results
+          </a>
+          <span className="h-3 w-px bg-gray-300" />
+          <a href="#solution" className="underline decoration-dotted underline-offset-4 hover:text-gray-900">
+            Architecture
+          </a>
+        </div>
+      </div>
+      <div className="flex items-center justify-center gap-2 py-4">
+        <a
+          href="https://www.gen3block.com"
+          target="_blank"
+          rel="noreferrer"
+          className="group flex items-center gap-2 text-xs text-amber-700/70 hover:text-amber-800 transition-all duration-500"
+        >
+          <span className="font-medium">Powered by</span>
+          <span className="font-bold bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 bg-clip-text text-transparent group-hover:drop-shadow-[0_0_10px_rgba(245,158,11,0.5)] transition-all duration-500">
+            Gen3block AI
+          </span>
+          <Sparkles className="h-4 w-4 text-amber-400 group-hover:text-yellow-300 transition-all duration-500 drop-shadow-[0_0_4px_rgba(245,158,11,0.4)] group-hover:drop-shadow-[0_0_8px_rgba(250,204,21,0.6)]" />
         </a>
       </div>
     </div>
