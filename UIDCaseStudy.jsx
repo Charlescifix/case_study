@@ -24,17 +24,17 @@ export default function UIDCaseStudy() {
         <Hero />
 
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <div className="bg-gradient-to-br from-blue-50 via-indigo-50/50 to-purple-50/30 rounded-xl p-1">
+          <div className="bg-gradient-to-br from-blue-100/80 via-indigo-50 to-purple-50/60 rounded-xl p-1">
             <BlackSquare title="Industry" kicker="Context" icon={<HeartHandshake className="h-5 w-5" />}
               body={<p className="text-sm/6 text-gray-900 font-semibold">Social Support · Charity Tech</p>} />
           </div>
 
-          <div className="bg-gradient-to-br from-emerald-50 via-teal-50/50 to-cyan-50/30 rounded-xl p-1">
+          <div className="bg-gradient-to-br from-emerald-100/80 via-teal-50 to-cyan-50/60 rounded-xl p-1">
             <BlackSquare title="Timeline" kicker="Duration" icon={<GaugeCircle className="h-5 w-5" />}
               body={<p className="text-sm/6 text-gray-900 font-semibold">6 - 8 weeks</p>} />
           </div>
 
-          <div className="bg-gradient-to-br from-violet-50 via-purple-50/50 to-pink-50/30 rounded-xl p-1">
+          <div className="bg-gradient-to-br from-violet-100/80 via-purple-50 to-pink-50/60 rounded-xl p-1">
             <BlackSquare title="Services" kicker="Scope" icon={<Layers className="h-5 w-5" />}
               body={<ul className="space-y-1 text-sm/6 text-gray-900 font-medium list-disc pl-4">
                 <li>Digital Assistance Platform (SPA)</li>
@@ -150,7 +150,7 @@ export default function UIDCaseStudy() {
 
 function Header() {
   return (
-    <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 md:gap-6 bg-gradient-to-r from-gray-50/50 via-blue-50/30 to-indigo-50/40 rounded-xl p-3 sm:p-4 border border-gray-100 shadow-sm">
+    <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 md:gap-6 bg-gradient-to-r from-gray-50 via-blue-50/60 to-indigo-50/70 rounded-xl p-3 sm:p-4 border border-gray-200 shadow-sm">
       <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
         <img
           src="/UID_LOGO.png" // replace with actual path
@@ -211,8 +211,8 @@ function Navigation() {
 
 function Hero() {
   return (
-    <div className="relative mt-4 sm:mt-6 md:mt-10 overflow-hidden rounded-2xl border border-indigo-200 bg-gradient-to-br from-indigo-50/60 via-white to-blue-50/40 p-5 sm:p-6 md:p-8 lg:p-10 shadow-lg">
-      <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-indigo-100/50" />
+    <div className="relative mt-4 sm:mt-6 md:mt-10 overflow-hidden rounded-2xl border border-indigo-300 bg-gradient-to-br from-indigo-50 via-white to-blue-50/70 p-5 sm:p-6 md:p-8 lg:p-10 shadow-lg">
+      <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-indigo-200" />
 
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-5 sm:gap-6 md:gap-8">
         <div className="max-w-3xl">
@@ -266,21 +266,21 @@ function Hero() {
 function Section({ id, title, children }) {
   // Color scheme rotation for sections
   const sectionColors = {
-    background: "bg-gradient-to-br from-blue-50/40 via-white to-indigo-50/30",
-    objectives: "bg-gradient-to-br from-purple-50/40 via-white to-pink-50/30",
-    solution: "bg-gradient-to-br from-indigo-50/40 via-white to-blue-50/30",
-    intake: "bg-gradient-to-br from-emerald-50/40 via-white to-teal-50/30",
-    governance: "bg-gradient-to-br from-amber-50/40 via-white to-orange-50/30",
-    outcomes: "bg-gradient-to-br from-rose-50/40 via-white to-pink-50/30",
-    blueprint: "bg-gradient-to-br from-violet-50/40 via-white to-purple-50/30",
-    next: "bg-gradient-to-br from-cyan-50/40 via-white to-sky-50/30",
-    impact: "bg-gradient-to-br from-indigo-50/40 via-white to-blue-50/30"
+    background: "bg-gradient-to-br from-blue-50 via-white to-indigo-50/60",
+    objectives: "bg-gradient-to-br from-purple-50 via-white to-pink-50/60",
+    solution: "bg-gradient-to-br from-indigo-50 via-white to-blue-50/60",
+    intake: "bg-gradient-to-br from-emerald-50 via-white to-teal-50/60",
+    governance: "bg-gradient-to-br from-amber-50 via-white to-orange-50/60",
+    outcomes: "bg-gradient-to-br from-rose-50 via-white to-pink-50/60",
+    blueprint: "bg-gradient-to-br from-violet-50 via-white to-purple-50/60",
+    next: "bg-gradient-to-br from-cyan-50 via-white to-sky-50/60",
+    impact: "bg-gradient-to-br from-indigo-50 via-white to-blue-50/60"
   };
 
   const bgColor = sectionColors[id] || "bg-white";
 
   return (
-    <section id={id} className={`mt-6 sm:mt-8 md:mt-12 scroll-mt-24 rounded-2xl p-4 sm:p-6 md:p-8 ${bgColor} border border-gray-100 shadow-sm`}>
+    <section id={id} className={`mt-6 sm:mt-8 md:mt-12 scroll-mt-24 rounded-2xl p-4 sm:p-6 md:p-8 ${bgColor} border border-gray-200 shadow-sm`}>
       <h2 className="mb-3 sm:mb-4 text-lg sm:text-xl md:text-2xl font-bold tracking-tight text-gray-950">{title}</h2>
       <BlackSquare>{children}</BlackSquare>
     </section>
@@ -323,7 +323,7 @@ function BlackSquare({
 
 function Stat({ title, value }) {
   return (
-    <div className="rounded-lg border border-indigo-100 bg-gradient-to-br from-indigo-50/50 to-blue-50/50 p-2 sm:p-2.5 md:p-3 text-left">
+    <div className="rounded-lg border border-indigo-200 bg-gradient-to-br from-indigo-100/70 to-blue-100/60 p-2 sm:p-2.5 md:p-3 text-left">
       <div className="text-[9px] sm:text-[10px] md:text-[11px] uppercase tracking-wide text-indigo-600/70">{title}</div>
       <div className="text-xs sm:text-sm font-semibold text-gray-900">{value}</div>
     </div>
@@ -377,7 +377,7 @@ function ResultBadge({ text }) {
 
 function Testimonial() {
   return (
-    <div className="relative overflow-hidden rounded-xl border border-indigo-200 bg-gradient-to-br from-indigo-50/50 via-blue-50/30 to-white p-6 shadow-md">
+    <div className="relative overflow-hidden rounded-xl border border-indigo-300 bg-gradient-to-br from-indigo-50 via-blue-50/60 to-white p-6 shadow-md">
       <Quote className="h-8 w-8 text-indigo-300 mb-3" />
       <p className="text-gray-800 text-base font-medium leading-relaxed">
         "The platform turns website visits into structured, trackable support journeys—and gives us the data to keep improving our service."
@@ -390,7 +390,7 @@ function Testimonial() {
 function Footer() {
   return (
     <div className="mt-12 space-y-4">
-      <div className="flex flex-col items-center justify-between gap-4 rounded-xl border border-gray-200 bg-gradient-to-r from-gray-100 via-blue-50/30 to-indigo-50/30 p-5 text-xs text-gray-600 sm:flex-row shadow-sm">
+      <div className="flex flex-col items-center justify-between gap-4 rounded-xl border border-gray-200 bg-gradient-to-r from-gray-100 via-blue-50/60 to-indigo-50/60 p-5 text-xs text-gray-600 sm:flex-row shadow-sm">
         <div>© {new Date().getFullYear()} Unity in Diversity · Digital Assistance Platform</div>
         <div className="flex items-center gap-3">
           <a href="https://www.theuid.uk" target="_blank" rel="noreferrer" className="underline decoration-dotted underline-offset-4 hover:text-gray-900">theuid.uk</a>
@@ -405,13 +405,13 @@ function Footer() {
           href="https://www.gen3block.com"
           target="_blank"
           rel="noreferrer"
-          className="group flex items-center gap-2 text-xs text-gray-500 hover:text-gray-700 transition-all duration-500"
+          className="group flex items-center gap-2 text-xs text-amber-700/70 hover:text-amber-800 transition-all duration-500"
         >
-          <span className="font-normal">Powered by</span>
-          <span className="font-semibold text-gray-600 group-hover:text-indigo-600/80 transition-all duration-500 group-hover:drop-shadow-[0_0_8px_rgba(99,102,241,0.3)]">
+          <span className="font-medium">Powered by</span>
+          <span className="font-bold bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 bg-clip-text text-transparent group-hover:drop-shadow-[0_0_10px_rgba(245,158,11,0.5)] transition-all duration-500">
             Gen3block AI
           </span>
-          <Sparkles className="h-3.5 w-3.5 text-gray-400 group-hover:text-indigo-400 opacity-60 group-hover:opacity-100 transition-all duration-500 group-hover:drop-shadow-[0_0_6px_rgba(99,102,241,0.4)]" />
+          <Sparkles className="h-4 w-4 text-amber-400 group-hover:text-yellow-300 transition-all duration-500 drop-shadow-[0_0_4px_rgba(245,158,11,0.4)] group-hover:drop-shadow-[0_0_8px_rgba(250,204,21,0.6)]" />
         </a>
       </div>
     </div>
@@ -428,8 +428,8 @@ function JellyBackdrop() {
         className="absolute -top-24 -left-24 h-[42rem] w-[42rem] rounded-full"
         style={{
           background:
-            "radial-gradient(closest-side, rgba(99,102,241,0.22), rgba(99,102,241,0.10) 40%, transparent 70%)",
-          filter: "blur(60px)",
+            "radial-gradient(closest-side, rgba(99,102,241,0.30), rgba(99,102,241,0.14) 40%, transparent 70%)",
+          filter: "blur(50px)",
         }}
       />
       <motion.div
@@ -439,8 +439,8 @@ function JellyBackdrop() {
         className="absolute -bottom-32 -right-28 h-[40rem] w-[40rem] rounded-full"
         style={{
           background:
-            "radial-gradient(closest-side, rgba(59,130,246,0.22), rgba(59,130,246,0.10) 40%, transparent 70%)",
-          filter: "blur(70px)",
+            "radial-gradient(closest-side, rgba(59,130,246,0.30), rgba(59,130,246,0.14) 40%, transparent 70%)",
+          filter: "blur(55px)",
         }}
       />
       <div className="absolute inset-0 bg-[radial-gradient(1200px_600px_at_80%_-10%,rgba(255,255,255,0.06),transparent)]" />
