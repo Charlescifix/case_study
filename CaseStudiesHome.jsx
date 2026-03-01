@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, School, Bot, ExternalLink, Calendar, HeartHandshake, Play } from "lucide-react";
+import { ArrowRight, School, Bot, ExternalLink, Calendar, HeartHandshake, Play, ShoppingBag } from "lucide-react";
 import { InlineWidget } from "react-calendly";
 
 export default function CaseStudiesHome() {
@@ -58,6 +58,23 @@ export default function CaseStudiesHome() {
             tagText="EdTech"
             footerHref="https://iufp.org.uk"
             footerText="iufp.org.uk"
+            youtubeUrl=""
+          />
+
+          <StudyCard
+            href="/bold-munch"
+            logoSrc="/Bold_Munch_logo.png"
+            title="Bold Munch: From Idea to a Thriving Digital Bakery"
+            subtitle="Custom ordering platform · WhatsApp · TikTok Shop"
+            bullets={[
+              "100+ products sold across web and TikTok",
+              "Postcode-validated delivery zones",
+              "WhatsApp Business order notifications",
+            ]}
+            tagIcon={<ShoppingBag className="h-4 w-4" />}
+            tagText="Food & E-Com"
+            footerHref="https://www.boldmunch.uk"
+            footerText="boldmunch.uk"
             youtubeUrl=""
           />
 
