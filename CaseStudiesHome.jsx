@@ -67,7 +67,7 @@ export default function CaseStudiesHome() {
             title="Bold Munch: From Idea to a Thriving Digital Bakery"
             subtitle="Custom ordering platform · WhatsApp · TikTok Shop"
             bullets={[
-              "100+ products sold across web and TikTok",
+              "100+ products sold in 60 days across web and TikTok",
               "Postcode-validated delivery zones",
               "WhatsApp Business order notifications",
             ]}
