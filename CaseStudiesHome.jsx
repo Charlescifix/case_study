@@ -15,7 +15,7 @@ export default function CaseStudiesHome() {
             <p className="text-xs sm:text-[11px] uppercase tracking-widest text-indigo-600/70">Case Studies</p>
             <h1 className="mt-1 text-2xl font-bold sm:text-4xl md:text-5xl text-gray-950">Selected Work</h1>
             <p className="mt-2 max-w-2xl text-sm sm:text-base text-gray-700 font-medium leading-relaxed">
-              Deep dives into real implementations across education, fintech, and social support—built with scalable AI, strong security, and clean UX.
+              Real implementations across Social Support, EdTech, FinTech, and Food & E-Commerce — built with scalable AI, strong security, and clean UX.
             </p>
           </div>
           <a
