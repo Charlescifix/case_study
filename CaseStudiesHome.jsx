@@ -26,7 +26,7 @@ export default function CaseStudiesHome() {
           </a>
         </header>
 
-        <main className="mt-8 sm:mt-10 grid gap-6 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <main className="mt-8 sm:mt-10 grid gap-6 sm:grid-cols-2 max-w-3xl mx-auto w-full">
           <StudyCard
             href="/uid"
             logoSrc="/UID_LOGO.png"
