@@ -53,7 +53,7 @@ export default function BoldMunchCaseStudy() {
               <ul className="space-y-1 text-sm/6 text-gray-900 font-medium list-disc pl-4">
                 <li>Custom ordering platform</li>
                 <li>WhatsApp order integration</li>
-                <li>TikTok Shop expansion</li>
+                <li>Social media expansion</li>
               </ul>
             }
           />
@@ -148,10 +148,10 @@ export default function BoldMunchCaseStudy() {
 
         <ResultsSection />
 
-        <Section id="expansion" title="TikTok Shop Expansion">
+        <Section id="expansion" title="Social Media Expansion">
           <p className="text-sm sm:text-base text-gray-800 font-medium leading-relaxed">
             With the digital platform established and operations running smoothly, Gen3block supported
-            Bold Munch's expansion onto TikTok Shop — bringing the brand in front of a wider audience.
+            Bold Munch's expansion onto social media — bringing the brand in front of a wider audience.
             The move to social commerce enabled Bold Munch to reach customers beyond local delivery zones,
             driving consistent order volume with over 100 products sold in just 60 days. Orders now come in regularly
             through multiple channels, with the platform handling fulfilment coordination seamlessly.
@@ -239,7 +239,7 @@ function Hero() {
           </h1>
           <p className="mt-2 sm:mt-3 text-sm sm:text-base text-gray-700 font-medium leading-relaxed max-w-xl">
             Gen3block transformed a home bakery concept into a fully operational ordering platform —
-            then scaled it to TikTok Shop with 100+ products sold in just 60 days and consistent weekly orders.
+            then scaled it to social media with 100+ products sold in just 60 days and consistent weekly orders.
           </p>
           <div className="mt-4 sm:mt-5 flex flex-wrap items-center gap-2 sm:gap-3">
             <a
@@ -258,7 +258,7 @@ function Hero() {
           <Stat title="Industry" value="Food & E-Com" />
           <Stat title="Orders" value="100+ in 60 days" />
           <Stat title="Min. Order" value="£20 + £4.90" />
-          <Stat title="Channel" value="Web · TikTok" />
+          <Stat title="Channel" value="Web · Social" />
         </div>
       </div>
     </div>
@@ -342,7 +342,7 @@ function ResultsSection() {
           </p>
           <div className="grid gap-3 sm:gap-4 md:grid-cols-2 lg:grid-cols-3">
             {[
-              "100+ products sold across web and TikTok Shop in just 60 days",
+              "100+ products sold across web and social media in just 60 days",
               "Minimum £20 order value with transparent £4.90 shipping",
               "Postcode-validated delivery zones — zero out-of-area orders",
               "WhatsApp Business integration for instant order notifications",

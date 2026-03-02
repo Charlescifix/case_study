@@ -65,9 +65,9 @@ export default function CaseStudiesHome() {
             href="/bold-munch"
             logoSrc="/Bold_Munch_logo.png"
             title="Bold Munch: From Idea to a Thriving Digital Bakery"
-            subtitle="Custom ordering platform · WhatsApp · TikTok Shop"
+            subtitle="Custom ordering platform · WhatsApp · Social Media"
             bullets={[
-              "100+ products sold in 60 days across web and TikTok",
+              "100+ products sold in 60 days across web and social media",
               "Postcode-validated delivery zones",
               "WhatsApp Business order notifications",
             ]}
