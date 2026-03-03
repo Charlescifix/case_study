@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { GraduationCap, Globe2, GaugeCircle, Sparkles, CheckCircle2, Quote, ArrowLeft, ExternalLink, Play } from "lucide-react";
+import { GraduationCap, Globe2, GaugeCircle, Sparkles, CheckCircle2, ArrowLeft, ExternalLink, Play } from "lucide-react";
 
 // Replace logo src values with actual paths: /IUFP_LOGO.jpg and /ATHE_LOGO.png
 

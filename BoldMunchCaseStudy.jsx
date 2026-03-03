@@ -9,7 +9,6 @@ import {
   CheckCircle2,
   ArrowLeft,
   ExternalLink,
-  Play,
   MapPin,
   MessageCircle,
   LayoutDashboard,

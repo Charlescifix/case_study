@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Server, ShieldCheck, Gauge, Rocket, CheckCircle2, Quote, Zap, GitBranch, ArrowLeft, ExternalLink, Play, Sparkles } from "lucide-react";
+import { Server, ShieldCheck, Gauge, Rocket, CheckCircle2, Zap, GitBranch, ArrowLeft, ExternalLink, Play, Sparkles } from "lucide-react";
 
 export default function TEEPCaseStudy() {
   return (
@@ -157,7 +157,7 @@ function Hero() {
         <div className="grid grid-cols-2 gap-2 sm:gap-3 w-full md:w-auto md:min-w-[220px] lg:min-w-[240px]">
           <Stat title="Industry" value="FinTech" />
           <Stat title="Uptime" value="99.9%" />
-          <Stat title="Retrieval" value="&lt;300 ms" />
+          <Stat title="Retrieval" value="<300 ms" />
           <Stat title="Users" value="3,500+" />
         </div>
       </div>
@@ -212,7 +212,7 @@ function Stat({ title, value }) {
   return (
     <div className="rounded-lg border border-indigo-100 bg-gradient-to-br from-indigo-50/50 to-blue-50/50 p-2 sm:p-2.5 md:p-3 text-left">
       <div className="text-[9px] sm:text-[10px] md:text-[11px] uppercase tracking-wide text-indigo-600/70">{title}</div>
-      <div className="text-xs sm:text-sm font-semibold text-gray-900" dangerouslySetInnerHTML={{ __html: value }} />
+      <div className="text-xs sm:text-sm font-semibold text-gray-900">{value}</div>
     </div>
   );
 }

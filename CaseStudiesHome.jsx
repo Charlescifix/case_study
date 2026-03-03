@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, School, Bot, ExternalLink, Calendar, HeartHandshake, Play, ShoppingBag } from "lucide-react";
 import { InlineWidget } from "react-calendly";
@@ -112,29 +112,35 @@ export default function CaseStudiesHome() {
               </p>
             </div>
 
-            <div className="relative">
-              {import.meta.env.VITE_CALENDLY_URL ? (
-                <InlineWidget
-                  url={import.meta.env.VITE_CALENDLY_URL}
-                  styles={{
-                    height: window.innerWidth < 640 ? '600px' : '700px',
-                    minWidth: '100%'
-                  }}
-                  pageSettings={{
-                    hideEventTypeDetails: false,
-                    hideLandingPageDetails: false,
-                  }}
-                />
-              ) : (
-                <div className="text-center py-12 text-gray-600">
-                  <p>Calendar widget is currently unavailable. Please contact us directly.</p>
-                </div>
-              )}
-            </div>
+            <CalendlyWidget />
           </div>
         </section>
       </div>
     </div>
+  );
+}
+
+function CalendlyWidget() {
+  const [height, setHeight] = useState('700px');
+
+  useEffect(() => {
+    setHeight(window.innerWidth < 640 ? '600px' : '700px');
+  }, []);
+
+  if (!import.meta.env.VITE_CALENDLY_URL) {
+    return (
+      <div className="text-center py-12 text-gray-600">
+        <p>Calendar widget is currently unavailable. Please contact us directly.</p>
+      </div>
+    );
+  }
+
+  return (
+    <InlineWidget
+      url={import.meta.env.VITE_CALENDLY_URL}
+      styles={{ height, minWidth: '100%' }}
+      pageSettings={{ hideEventTypeDetails: false, hideLandingPageDetails: false }}
+    />
   );
 }
 
@@ -150,10 +156,15 @@ function StudyCard({
   footerText,
   youtubeUrl
 }) {
+  const navigate = useNavigate();
+
   return (
-    <Link
-      to={href}
-      className="group relative block overflow-hidden rounded-2xl border border-gray-200 bg-white p-5 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+    <div
+      role="button"
+      tabIndex={0}
+      onClick={() => navigate(href)}
+      onKeyDown={(e) => e.key === 'Enter' && navigate(href)}
+      className="group relative block overflow-hidden rounded-2xl border border-gray-200 bg-white p-5 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
     >
       <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-gray-100" />
       <div className="pointer-events-none absolute inset-0 rounded-2xl [background:radial-gradient(60px_60px_at_20px_20px,rgba(99,102,241,0.03),transparent),radial-gradient(60px_60px_at_calc(100%-20px)_calc(100%-20px),rgba(99,102,241,0.03),transparent)]" />
@@ -184,7 +195,6 @@ function StudyCard({
         ))}
       </ul>
 
-      {/* Website and YouTube links */}
       <div className="relative mt-4 sm:mt-5 flex flex-wrap items-center gap-2 sm:gap-3">
         <a
           href={footerHref}
@@ -216,7 +226,7 @@ function StudyCard({
           <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1" />
         </span>
       </div>
-    </Link>
+    </div>
   );
 }
 
