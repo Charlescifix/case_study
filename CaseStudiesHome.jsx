@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, School, Bot, ExternalLink, Calendar, HeartHandshake, Play, ShoppingBag } from "lucide-react";
+import { ArrowRight, School, Bot, ExternalLink, Calendar, HeartHandshake, Play, ShoppingBag, Zap } from "lucide-react";
 import { InlineWidget } from "react-calendly";
 
 export default function CaseStudiesHome() {
@@ -27,6 +27,23 @@ export default function CaseStudiesHome() {
         </header>
 
         <main className="mt-8 sm:mt-10 grid gap-6 sm:grid-cols-2 max-w-3xl mx-auto w-full">
+          <StudyCard
+            href="/ai-launchpad"
+            logos={["/gen3block_logo.png", "/UID_LOGO.png", "/UAA_LOGO.jpg"]}
+            title="AI Launchpad: Community AI Skills Workshop"
+            subtitle="Confidence growth · Employability · Responsible AI"
+            bullets={[
+              "+94% average confidence lift in a single session",
+              "85% of attendees ended more confident than they started",
+              "54% promoter-level recommendation scores",
+            ]}
+            tagIcon={<Zap className="h-4 w-4" />}
+            tagText="AI Training"
+            footerHref=""
+            footerText=""
+            youtubeUrl=""
+          />
+
           <StudyCard
             href="/uid"
             logoSrc="/UID_LOGO.png"
@@ -147,6 +164,7 @@ function CalendlyWidget() {
 function StudyCard({
   href,
   logoSrc,
+  logos,
   title,
   subtitle,
   bullets,
@@ -170,11 +188,28 @@ function StudyCard({
       <div className="pointer-events-none absolute inset-0 rounded-2xl [background:radial-gradient(60px_60px_at_20px_20px,rgba(99,102,241,0.03),transparent),radial-gradient(60px_60px_at_calc(100%-20px)_calc(100%-20px),rgba(99,102,241,0.03),transparent)]" />
 
       <div className="relative flex items-start justify-between gap-3 sm:gap-4">
-        <img
-          src={logoSrc}
-          alt="logo"
-          className="h-8 sm:h-10 md:h-12 w-auto object-contain drop-shadow-[0_6px_24px_rgba(255,255,255,0.08)]"
-        />
+        {logos ? (
+          <div className="flex items-center gap-2">
+            {logos.map((src, i) => (
+              <React.Fragment key={src}>
+                <img
+                  src={src}
+                  alt="logo"
+                  className="h-7 sm:h-9 w-auto object-contain"
+                />
+                {i < logos.length - 1 && (
+                  <span className="text-gray-300 text-xs font-light">×</span>
+                )}
+              </React.Fragment>
+            ))}
+          </div>
+        ) : (
+          <img
+            src={logoSrc}
+            alt="logo"
+            className="h-8 sm:h-10 md:h-12 w-auto object-contain drop-shadow-[0_6px_24px_rgba(255,255,255,0.08)]"
+          />
+        )}
         <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-indigo-200 bg-indigo-50 px-2.5 sm:px-3 py-1 text-[10px] sm:text-[11px] text-indigo-700 font-medium whitespace-nowrap">
           {tagIcon}
           <span>{tagText}</span>
