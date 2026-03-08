@@ -165,20 +165,13 @@ const bubbleKeyframes = `
     50%  { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
   }
-  @keyframes fireFlicker {
-    0%,100% { text-shadow: 0 0 8px #ff6a00, 0 0 18px #ee0979, 0 0 28px #ff6a00, 0 0 5px #fff8; }
-    25%     { text-shadow: 0 0 12px #ffd700, 0 0 22px #ff6a00, 0 0 36px #ee0979, 0 0 8px #fff8; }
-    50%     { text-shadow: 0 0 6px #ff6a00, 0 0 14px #ffd700, 0 0 24px #ee0979, 0 0 3px #fff8; }
-    75%     { text-shadow: 0 0 10px #ee0979, 0 0 20px #ff6a00, 0 0 32px #ffd700, 0 0 6px #fff8; }
-  }
   .powered-by-gen3block {
     background: linear-gradient(90deg, #ff6a00, #ffd700, #ee0979, #ff6a00, #ffd700);
     background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: fireShine 3s ease-in-out infinite, fireFlicker 1.8s ease-in-out infinite;
-    filter: drop-shadow(0 0 6px rgba(255, 106, 0, 0.5));
+    animation: fireShine 3s ease-in-out infinite;
   }
 `;
 
