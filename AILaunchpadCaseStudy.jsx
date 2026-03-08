@@ -159,6 +159,27 @@ const bubbleKeyframes = `
     40%      { transform: translate(8px,6px) scale(0.9); }
     80%      { transform: translate(-3px,-7px) scale(1.06); }
   }
+
+  @keyframes fireShine {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  @keyframes fireFlicker {
+    0%,100% { text-shadow: 0 0 8px #ff6a00, 0 0 18px #ee0979, 0 0 28px #ff6a00, 0 0 5px #fff8; }
+    25%     { text-shadow: 0 0 12px #ffd700, 0 0 22px #ff6a00, 0 0 36px #ee0979, 0 0 8px #fff8; }
+    50%     { text-shadow: 0 0 6px #ff6a00, 0 0 14px #ffd700, 0 0 24px #ee0979, 0 0 3px #fff8; }
+    75%     { text-shadow: 0 0 10px #ee0979, 0 0 20px #ff6a00, 0 0 32px #ffd700, 0 0 6px #fff8; }
+  }
+  .powered-by-gen3block {
+    background: linear-gradient(90deg, #ff6a00, #ffd700, #ee0979, #ff6a00, #ffd700);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: fireShine 3s ease-in-out infinite, fireFlicker 1.8s ease-in-out infinite;
+    filter: drop-shadow(0 0 6px rgba(255, 106, 0, 0.5));
+  }
 `;
 
 function StatPill({ label, value, sub, bg = "bg-white", border = "border-slate-200", bubbles }) {
@@ -292,7 +313,7 @@ export default function AILaunchpadCaseStudy() {
                 Learn AI for Jobs, Business &amp; Everyday Life
               </p>
               <p className="mt-3 sm:mt-4 text-sm sm:text-base leading-6 sm:leading-7 text-slate-400">
-                On 4 March 2026, Gen3block partnered with Unity in Diversity (UK) and the United
+                On 4 March 2026, Gen3block partnered with Unity in Diversity CIC (UK) and the United
                 African Association to deliver a hands-on community AI workshop in Northampton.
                 Fourteen participants — job seekers, volunteers, charity workers, a CEO, and a
                 student — spent 2.5 hours discovering how AI unlocks real, practical results.
@@ -330,7 +351,7 @@ export default function AILaunchpadCaseStudy() {
               <span className="font-semibold text-white">Delivered by</span>
               <span className="rounded-lg bg-sky-400/20 border border-sky-400/30 px-2.5 py-1 font-bold text-sky-200">Gen3block</span>
               <span className="text-slate-600">×</span>
-              <span className="rounded-lg bg-white/10 border border-white/10 px-2.5 py-1 text-slate-300">Unity in Diversity (UK)</span>
+              <span className="rounded-lg bg-white/10 border border-white/10 px-2.5 py-1 text-slate-300">Unity in Diversity CIC (UK)</span>
               <span className="text-slate-600">×</span>
               <span className="rounded-lg bg-white/10 border border-white/10 px-2.5 py-1 text-slate-300">United African Association</span>
             </div>
@@ -812,6 +833,13 @@ export default function AILaunchpadCaseStudy() {
           </div>
         </div>
         </FadeIn>
+
+        {/* ── POWERED BY FOOTER ─────────────────────────────────────────────── */}
+        <div className="mt-10 mb-2 flex justify-center">
+          <span className="powered-by-gen3block select-none text-sm sm:text-base font-bold tracking-wide">
+            Powered by Gen3block AI
+          </span>
+        </div>
 
       </div>
     </div>
