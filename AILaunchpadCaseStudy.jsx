@@ -330,7 +330,7 @@ export default function AILaunchpadCaseStudy() {
             {/* Right — workshop photo */}
             <div className="lg:w-72 xl:w-88 shrink-0 flex items-stretch justify-center bg-[#0b2d4a] relative overflow-hidden">
               <img
-                src="/ai-workshop.jpg"
+                src="/gen3block-uaa-community-workshop.jpg"
                 alt="AI Launchpad workshop in session"
                 className="w-full h-auto max-h-64 sm:max-h-80 lg:max-h-none object-contain object-center"
               />
