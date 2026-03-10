@@ -24,8 +24,49 @@
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
   </head>
   <body>
+    <!--
+      Static HTML inside #root is visible immediately to all crawlers and scrapers.
+      React replaces this content once the JS bundle executes.
+      The <noscript> block is an additional fallback for non-JS environments.
+    -->
     <div id="root">
-      <!-- Static fallback for crawlers and AI agents that cannot execute JavaScript -->
+      <div id="sc" style="font-family:system-ui,sans-serif;max-width:900px;margin:0 auto;padding:40px 20px 80px;color:#1e293b">
+        <p style="font-size:.8rem;color:#6366f1;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px">Gen3block · Case Studies</p>
+        <h1 style="font-size:clamp(1.6rem,4vw,2.8rem);font-weight:800;color:#0f172a;margin-bottom:12px">Selected Work</h1>
+        <p style="font-size:1rem;color:#475569;max-width:640px;line-height:1.7;margin-bottom:32px">Real implementations across AI Training, Social Support, EdTech, Food &amp; E-Commerce, and FinTech — built with scalable AI, strong security, and clean UX.</p>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+          <a href="/case_study/ai-launchpad" style="display:block;background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:18px;text-decoration:none;color:inherit">
+            <div style="font-size:.72rem;font-weight:700;color:#6366f1;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">AI Training &middot; March 2026</div>
+            <h2 style="font-size:1rem;font-weight:700;color:#0f172a;margin-bottom:6px">AI Launchpad — Community AI Skills Workshop</h2>
+            <p style="font-size:.85rem;color:#64748b;line-height:1.6">+94% AI confidence lift in a single session. NPS +38.5. 14 attendees across healthcare, charity, education, and community sectors. Northampton.</p>
+          </a>
+          <a href="/case_study/uid" style="display:block;background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:18px;text-decoration:none;color:inherit">
+            <div style="font-size:.72rem;font-weight:700;color:#6366f1;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">Social Support &middot; Charity Tech</div>
+            <h2 style="font-size:1rem;font-weight:700;color:#0f172a;margin-bottom:6px">Unity in Diversity (UiD) — Digital Assistance Platform</h2>
+            <p style="font-size:.85rem;color:#64748b;line-height:1.6">Risk-aware triage engine, 5-step mobile-first intake, admin portal, PostgreSQL backend with GDPR-compliant audit trails.</p>
+          </a>
+          <a href="/case_study/iufp" style="display:block;background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:18px;text-decoration:none;color:inherit">
+            <div style="font-size:.72rem;font-weight:700;color:#6366f1;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">EdTech &middot; 4 months</div>
+            <h2 style="font-size:1rem;font-weight:700;color:#0f172a;margin-bottom:6px">IUFP — Digital Transformation for International Education</h2>
+            <p style="font-size:.85rem;color:#64748b;line-height:1.6">Multi-tenant VLE, automated admissions, RBAC compliance. 5× faster processing across 10+ partner countries.</p>
+          </a>
+          <a href="/case_study/bold-munch" style="display:block;background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:18px;text-decoration:none;color:inherit">
+            <div style="font-size:.72rem;font-weight:700;color:#6366f1;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">Food &amp; E-Commerce</div>
+            <h2 style="font-size:1rem;font-weight:700;color:#0f172a;margin-bottom:6px">Bold Munch — From Idea to a Thriving Digital Bakery</h2>
+            <p style="font-size:.85rem;color:#64748b;line-height:1.6">Custom ordering platform, WhatsApp Business integration, postcode-validated delivery zones. 100+ products sold in 60 days.</p>
+          </a>
+          <a href="/case_study/teep" style="display:block;background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:18px;text-decoration:none;color:inherit">
+            <div style="font-size:.72rem;font-weight:700;color:#6366f1;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">FinTech &middot; 4–6 weeks</div>
+            <h2 style="font-size:1rem;font-weight:700;color:#0f172a;margin-bottom:6px">TEEP — Enterprise RAG System for Fintech</h2>
+            <p style="font-size:.85rem;color:#64748b;line-height:1.6">RAG on FastAPI + PostgreSQL embeddings. Sub-300ms retrieval, 99.9% uptime, 3,500+ users, seamless payment-surface integration.</p>
+          </a>
+        </div>
+
+        <p style="margin-top:40px;font-size:.78rem;color:#94a3b8">Powered by <a href="https://www.gen3block.com" style="color:#6366f1;text-decoration:none" target="_blank" rel="noreferrer">Gen3block</a> · JavaScript is loading the full interactive experience.</p>
+      </div>
+
+      <!-- Additional fallback for non-JS environments -->
       <noscript>
         <style>
           .ns { font-family: sans-serif; max-width: 860px; margin: 40px auto; padding: 0 20px; color: #1e293b; }
