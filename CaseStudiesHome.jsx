@@ -58,11 +58,11 @@ export default function CaseStudiesHome() {
             href="/uid"
             logoSrc="/UID_LOGO.png"
             title="Unity in Diversity (UiD): Digital Assistance Platform"
-            subtitle="Risk‑aware triage · Case management · GDPR compliant"
+            subtitle="Risk-scored triage · Case management · Partner portal · GDPR"
             bullets={[
-              "Structured intake with intelligent triage",
-              "Single operational view of live cases",
-              "Auditable governance & data protection",
+              "Replaced ad-hoc email with structured, risk-scored intake",
+              "Secure case dashboard with live queue, notes and status tracking",
+              "GDPR-compliant: Helmet.js, CSRF, Joi validation, consent logging",
             ]}
             tagIcon={<HeartHandshake className="h-4 w-4" />}
             tagText="Social Support"

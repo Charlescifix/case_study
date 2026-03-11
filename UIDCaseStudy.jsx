@@ -47,41 +47,67 @@ export default function UIDCaseStudy() {
 
         <Section id="background" title="Background">
           <p className="text-gray-800 font-medium leading-relaxed">
-            Unity in Diversity (UiD) supports men facing challenges across employment, housing, addiction, emotional wellbeing, relationships and loneliness. Previously, a single contact form fed a shared inbox with no way to see all referrals, prioritise urgent cases, track outcomes, or produce reliable data for trustees and funders.
+            Unity in Diversity (UiD) supports men facing challenges across employment, housing, mental health, substance misuse and loneliness. With high-risk topics such as self-harm, domestic abuse and addiction in the mix, UiD's previous approach—a single contact form feeding unstructured email—made manual triage difficult and responses frequently delayed. There was no way to identify urgent cases, track outcomes, or produce reliable data for trustees and funders.
           </p>
         </Section>
 
         <Section id="objectives" title="Objectives">
           <div className="grid gap-4 md:grid-cols-2">
-            <BlackSquare subtle title="From Static Site → Assistance Platform" body={<p className="text-gray-800 text-sm/6 font-medium">Transform the public website into a structured, supportive intake experience.</p>} />
-            <BlackSquare subtle title="Risk‑Aware Triage" body={<p className="text-gray-800 text-sm/6 font-medium">Introduce scoring and priority levels so urgent cases are never missed.</p>} />
-            <BlackSquare subtle title="Operational Cockpit" body={<p className="text-gray-800 text-sm/6 font-medium">Provide an admin portal for case management and assignment.</p>} />
-            <BlackSquare subtle title="Secure Data Foundation" body={<p className="text-gray-800 text-sm/6 font-medium">Build compliant, auditable data flows for future analytics and growth.</p>} />
+            <BlackSquare subtle title="Structured Intake" body={<p className="text-gray-800 text-sm/6 font-medium">Replace unstructured email with a multi-step form that collects personal details, circumstances, support needs, risk indicators and consent up-front.</p>} />
+            <BlackSquare subtle title="Risk‑Aware Triage" body={<p className="text-gray-800 text-sm/6 font-medium">Automatically score submissions based on risk factors—self-harm, domestic abuse, substance misuse, financial distress—so urgent cases are never missed.</p>} />
+            <BlackSquare subtle title="Case Management Dashboard" body={<p className="text-gray-800 text-sm/6 font-medium">Give administrators a secure portal to filter, prioritise, annotate and resolve cases with a full notes timeline.</p>} />
+            <BlackSquare subtle title="Partner Engagement & GDPR Foundation" body={<p className="text-gray-800 text-sm/6 font-medium">Enable external organisations to register as partners and build a compliant, auditable data architecture for future growth and funding reporting.</p>} />
           </div>
         </Section>
 
         <Section id="solution" title="Solution Overview">
           <div className="grid gap-6 md:grid-cols-2">
-            <BlackSquare subtle title="User Intake (5‑Step Flow)" body={<ul className="space-y-1 text-sm/6 text-gray-800 font-medium list-disc pl-4">
-              <li>Safe, mobile‑first multi‑page form with real‑time validation & accessibility.</li>
-              <li>Trauma‑informed language and reassuring micro‑copy.</li>
+            <BlackSquare subtle title="Public Intake Form (5‑Step)" body={<ul className="space-y-1 text-sm/6 text-gray-800 font-medium list-disc pl-4">
+              <li>Mobile-first, multi-step form with real-time validation and accessible design.</li>
+              <li>Trauma-informed language guides users through sensitive questions; explicit consent captured before submission.</li>
             </ul>} />
 
-            <BlackSquare subtle title="Triage Engine" body={<ul className="space-y-1 text-sm/6 text-gray-800 font-medium list-disc pl-4">
-              <li>Weighted scoring from concerns, risk flags, and situational factors.</li>
-              <li>Priority levels: Immediate, High, Medium, Low with response targets.</li>
+            <BlackSquare subtle title="Risk‑Aware Triage Engine" body={<ul className="space-y-1 text-sm/6 text-gray-800 font-medium list-disc pl-4">
+              <li>Server-side weighted scoring across risk factors: self-harm, domestic abuse, substance misuse, financial distress.</li>
+              <li>Categorises each submission (high / medium / low) to direct administrator attention to the most urgent cases.</li>
             </ul>} />
 
-            <BlackSquare subtle title="Secure Backend & Data Store" body={<ul className="space-y-1 text-sm/6 text-gray-800 font-medium list-disc pl-4">
-              <li>Node.js/Express API, structured validation & logging.</li>
-              <li>PostgreSQL with ORM; tables for submissions, users, cases, notes, orgs, audit.</li>
+            <BlackSquare subtle title="Case Management Dashboard" body={<ul className="space-y-1 text-sm/6 text-gray-800 font-medium list-disc pl-4">
+              <li>Filterable queue by triage level, status and date; detailed submission view with notes and status updates.</li>
+              <li>CSRF-protected, session-authenticated admin portal with audit trail.</li>
             </ul>} />
 
-            <BlackSquare subtle title="Admin Portal" body={<ul className="space-y-1 text-sm/6 text-gray-800 font-medium list-disc pl-4">
-              <li>Live queue sorted by priority and submission time; rich filtering.</li>
-              <li>Case workspace with notes timeline, status, and assignments.</li>
-              <li>RBAC permissions; audit logging; retention settings.</li>
+            <BlackSquare subtle title="Partner Registration & Blog CMS" body={<ul className="space-y-1 text-sm/6 text-gray-800 font-medium list-disc pl-4">
+              <li>Dedicated form for external organisations to submit partnership requests with contact and type details.</li>
+              <li>Lightweight CMS for Markdown blog posts; admin studio to create, edit and publish; DOMPurify sanitisation and tag filtering on the public side.</li>
             </ul>} />
+          </div>
+        </Section>
+
+        <Section id="architecture" title="System Architecture">
+          <div className="overflow-x-auto rounded-lg">
+            <table className="w-full text-sm text-left border-collapse">
+              <thead>
+                <tr className="border-b border-gray-200">
+                  <th className="py-2 pr-6 font-semibold text-gray-700 whitespace-nowrap">Component</th>
+                  <th className="py-2 font-semibold text-gray-700">Detail</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {[
+                  ["Backend", "Node.js (Express 4.x) — server-rendered HTML shells + REST API"],
+                  ["Database", "PostgreSQL — submissions, partner registrations, blog, cookie consent, audit"],
+                  ["Frontend", "React 18 (CDN) + Tailwind CSS (CDN) — mobile-first, dynamic interactions"],
+                  ["Security", "Helmet.js, CSRF tokens (csurf), rate limiting, Joi validation, signed httpOnly cookies"],
+                  ["Deployment", "Single Railway service — auto-build, restart-on-failure, max 20 DB connections"],
+                ].map(([comp, detail]) => (
+                  <tr key={comp} className="hover:bg-gray-50 transition-colors">
+                    <td className="py-3 pr-6 font-semibold text-gray-900 whitespace-nowrap align-top">{comp}</td>
+                    <td className="py-3 text-gray-700 font-medium leading-relaxed">{detail}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </Section>
 
@@ -97,29 +123,21 @@ export default function UIDCaseStudy() {
 
         <Section id="governance" title="Data Protection & Compliance">
           <BlackSquare body={<ul className="space-y-1 text-sm/6 text-gray-800 font-medium list-disc pl-4">
-            <li>HTTPS end‑to‑end; separated environments; least‑privilege access.</li>
-            <li>Data minimisation; defined retention; SAR & deletion processes.</li>
-            <li>Regular review of access rights and audit logs.</li>
+            <li><strong>Helmet.js</strong> enforces strict HTTP security headers on every response.</li>
+            <li><strong>CSRF tokens</strong> (csurf) protect all form submissions; signed httpOnly cookies handle session authentication.</li>
+            <li><strong>Rate limiting</strong> and <strong>Joi schema validation</strong> guard all API endpoints; sensitive triage logic runs server-side only.</li>
+            <li>Cookie consent is explicitly captured and logged in a dedicated <code className="text-xs bg-gray-100 px-1 py-0.5 rounded">cookie_consent</code> table.</li>
+            <li>Data minimisation, defined retention periods, and SAR & deletion processes are built in from day one.</li>
           </ul>} />
         </Section>
 
-        <Section id="outcomes" title="Outcomes & Benefits">
-          <div className="grid gap-4 md:grid-cols-3">
-            <BlackSquare subtle title="For Men" body={<ul className="space-y-1 text-sm/6 text-gray-800 font-medium list-disc pl-4">
-              <li>Clear, kinder intake that sets expectations.</li>
-              <li>Confidential handling of information.</li>
-              <li>Faster responses for highest‑risk cases.</li>
-            </ul>} />
-            <BlackSquare subtle title="For Staff" body={<ul className="space-y-1 text-sm/6 text-gray-800 font-medium list-disc pl-4">
-              <li>Single prioritised queue; less inbox hunting.</li>
-              <li>Clear ownership; timeline of actions and outcomes.</li>
-              <li>Safeguarding guardrails embedded in workflow.</li>
-            </ul>} />
-            <BlackSquare subtle title="For Leadership" body={<ul className="space-y-1 text-sm/6 text-gray-800 font-medium list-disc pl-4">
-              <li>On‑demand insight into demand patterns and risk levels.</li>
-              <li>Visibility of outcomes and progression.</li>
-              <li>Scalable foundation for partnerships and future services.</li>
-            </ul>} />
+        <Section id="outcomes" title="Outcomes">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <BlackSquare subtle title="Structured Intake" body={<p className="text-gray-800 text-sm/6 font-medium">Unstructured email referrals replaced by a comprehensive, consistent data capture that gives staff everything they need before first contact.</p>} />
+            <BlackSquare subtle title="Risk‑Aware Triage" body={<p className="text-gray-800 text-sm/6 font-medium">High-risk submissions—self-harm, domestic abuse, substance misuse—are surfaced immediately with clear priority scores and response targets.</p>} />
+            <BlackSquare subtle title="Centralised Case Management" body={<p className="text-gray-800 text-sm/6 font-medium">The team has a live view of all submissions, eliminating manual tracking and giving clear ownership through notes and status updates.</p>} />
+            <BlackSquare subtle title="Partner Engagement" body={<p className="text-gray-800 text-sm/6 font-medium">External organisations can register as partners through a dedicated form, streamlining collaboration and extending UiD's network.</p>} />
+            <BlackSquare subtle title="GDPR Compliance by Design" body={<p className="text-gray-800 text-sm/6 font-medium">Secure session handling, Joi input validation, CSRF protection, and consent logging are built into the architecture—not bolted on.</p>} />
           </div>
         </Section>
 
@@ -127,12 +145,12 @@ export default function UIDCaseStudy() {
           <BlackSquare body={<p className="text-gray-800 text-sm/6 font-medium">Pattern can be adapted for women's services, youth/student support, local authority advice teams, and community organisations needing structured intake and triage.</p>} />
         </Section>
 
-        <Section id="next" title="Next Evolution">
+        <Section id="next" title="Suggested Enhancements">
           <BlackSquare body={<ul className="space-y-1 text-sm/6 text-gray-800 font-medium list-disc pl-4">
-            <li>Deeper outcome measurement over time.</li>
-            <li>Partner integrations for warm referrals.</li>
-            <li>Self‑service digital resources alongside human support.</li>
-            <li>Additional languages and accessibility improvements.</li>
+            <li><strong>Multi-admin & RBAC:</strong> Support multiple case managers with distinct permission levels.</li>
+            <li><strong>Email / SMS notifications:</strong> Automatically alert administrators when high-risk submissions arrive.</li>
+            <li><strong>Analytics & reporting:</strong> Dashboards covering submission volumes, triage outcomes and response times to inform funding and policy decisions.</li>
+            <li><strong>Architecture diagram:</strong> Visual representation of browser → backend → database flow for onboarding and documentation.</li>
           </ul>} />
         </Section>
 
@@ -184,7 +202,8 @@ function Navigation() {
     { id: 'background', label: 'Background' },
     { id: 'objectives', label: 'Objectives' },
     { id: 'solution', label: 'Solution' },
-    { id: 'intake', label: 'Intake Journey' },
+    { id: 'architecture', label: 'Architecture' },
+    { id: 'intake', label: 'Intake' },
     { id: 'results', label: 'Results' },
     { id: 'impact', label: 'Impact' },
   ];
@@ -269,6 +288,7 @@ function Section({ id, title, children }) {
     background: "bg-gradient-to-br from-blue-50 via-white to-indigo-50/60",
     objectives: "bg-gradient-to-br from-purple-50 via-white to-pink-50/60",
     solution: "bg-gradient-to-br from-indigo-50 via-white to-blue-50/60",
+    architecture: "bg-gradient-to-br from-slate-50 via-white to-gray-50/60",
     intake: "bg-gradient-to-br from-emerald-50 via-white to-teal-50/60",
     governance: "bg-gradient-to-br from-amber-50 via-white to-orange-50/60",
     outcomes: "bg-gradient-to-br from-rose-50 via-white to-pink-50/60",
@@ -348,12 +368,12 @@ function ResultsSection() {
           </p>
           <div className="grid gap-3 sm:gap-4 md:grid-cols-2 lg:grid-cols-3">
             {[
-              "Structured intake replacing untracked inbox referrals",
-              "Risk‑scored triage with clear response targets",
-              "Single operational view of live cases",
-              "Auditable governance with RBAC and retention policies",
-              "Foundational data model for reporting and funding",
-              "Blueprint that can be replicated across services",
+              "Structured multi-step intake replacing untracked email referrals",
+              "Server-side risk scoring for self-harm, domestic abuse & substance misuse",
+              "Centralised case dashboard with live queue, notes and status tracking",
+              "Partner organisation registration built into the platform",
+              "GDPR-compliant: Helmet.js, CSRF, rate limiting, Joi, consent logging",
+              "Deployed on Railway with PostgreSQL — production-ready from day one",
             ].map((t, i) => (
               <ResultBadge key={i} text={t} />
             ))}
