@@ -490,6 +490,15 @@ function buildPage({ title, description, ogImage, path: routePath, body }) {
 }
 
 // ─── Write prerendered files ──────────────────────────────────────────────────
+// Also copy dist/index.html → dist/case_study/index.html so the server never
+// hits the SPA fallback for the home route (/case_study/). Without this, the
+// server falls back to dist/index.html for that path, briefly flashing the
+// 5-card static content while the JS bundle loads.
+const homeDir = join(dist, 'case_study');
+mkdirSync(homeDir, { recursive: true });
+writeFileSync(join(homeDir, 'index.html'), template, 'utf-8');
+console.log(`  ✓  /case_study  (home)`);
+
 let count = 0;
 for (const route of routes) {
   const dir = join(dist, 'case_study', route.path);

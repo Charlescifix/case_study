@@ -18,12 +18,22 @@ export default function CaseStudiesHome() {
               Real implementations across Social Support, EdTech, FinTech, and Food & E-Commerce — built with scalable AI, strong security, and clean UX.
             </p>
           </div>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-indigo-50 px-4 py-2 text-sm text-indigo-700 hover:bg-indigo-100 transition-colors font-medium"
-          >
-            Get in touch <ArrowRight className="h-4 w-4" />
-          </a>
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-indigo-200 bg-indigo-50 px-4 py-2 text-sm text-indigo-700 hover:bg-indigo-100 transition-colors font-medium"
+            >
+              Get in touch <ArrowRight className="h-4 w-4" />
+            </a>
+            <a
+              href="https://www.gen3block.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-indigo-600 to-violet-600 px-4 py-2 text-sm font-semibold text-white shadow-md shadow-indigo-200 hover:from-indigo-500 hover:to-violet-500 hover:shadow-indigo-300 transition-all duration-200"
+            >
+              Visit Gen3block.com <ExternalLink className="h-4 w-4" />
+            </a>
+          </div>
         </header>
 
         <main className="mt-8 sm:mt-10 grid gap-6 sm:grid-cols-2 max-w-3xl mx-auto w-full">
