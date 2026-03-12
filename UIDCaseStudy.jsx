@@ -23,7 +23,7 @@ export default function UIDCaseStudy() {
         <Navigation />
         <Hero />
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-6 sm:mt-8 md:mt-10 grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
           <div className="bg-gradient-to-br from-blue-100/80 via-indigo-50 to-purple-50/60 rounded-xl p-1">
             <BlackSquare title="Industry" kicker="Context" icon={<HeartHandshake className="h-5 w-5" />}
               body={<p className="text-sm/6 text-gray-900 font-semibold">Social Support · Charity Tech</p>} />
@@ -46,9 +46,9 @@ export default function UIDCaseStudy() {
         </div>
 
         <Section id="background" title="Background">
-          <p className="text-gray-800 font-medium leading-relaxed">
+          <BlackSquare body={<p className="text-gray-800 font-medium leading-relaxed">
             Unity in Diversity (UiD) supports men facing challenges across employment, housing, mental health, substance misuse and loneliness. With high-risk topics such as self-harm, domestic abuse and addiction in the mix, UiD's previous approach—a single contact form feeding unstructured email—made manual triage difficult and responses frequently delayed. There was no way to identify urgent cases, track outcomes, or produce reliable data for trustees and funders.
-          </p>
+          </p>} />
         </Section>
 
         <Section id="objectives" title="Objectives">
@@ -85,29 +85,16 @@ export default function UIDCaseStudy() {
         </Section>
 
         <Section id="architecture" title="System Architecture">
-          <div className="overflow-x-auto rounded-lg">
-            <table className="w-full text-sm text-left border-collapse">
-              <thead>
-                <tr className="border-b border-gray-200">
-                  <th className="py-2 pr-6 font-semibold text-gray-700 whitespace-nowrap">Component</th>
-                  <th className="py-2 font-semibold text-gray-700">Detail</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-100">
-                {[
-                  ["Backend", "Node.js (Express 4.x) — server-rendered HTML shells + REST API"],
-                  ["Database", "PostgreSQL — submissions, partner registrations, blog, cookie consent, audit"],
-                  ["Frontend", "React 18 (CDN) + Tailwind CSS (CDN) — mobile-first, dynamic interactions"],
-                  ["Security", "Helmet.js, CSRF tokens (csurf), rate limiting, Joi validation, signed httpOnly cookies"],
-                  ["Deployment", "Single Railway service — auto-build, restart-on-failure, max 20 DB connections"],
-                ].map(([comp, detail]) => (
-                  <tr key={comp} className="hover:bg-gray-50 transition-colors">
-                    <td className="py-3 pr-6 font-semibold text-gray-900 whitespace-nowrap align-top">{comp}</td>
-                    <td className="py-3 text-gray-700 font-medium leading-relaxed">{detail}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="grid gap-3 sm:gap-4 md:grid-cols-2">
+            {[
+              ["Backend", "Node.js (Express 4.x) — server-rendered HTML shells + REST API"],
+              ["Database", "PostgreSQL — submissions, partner registrations, blog, cookie consent, audit"],
+              ["Frontend", "React 18 (CDN) + Tailwind CSS (CDN) — mobile-first, dynamic interactions"],
+              ["Security", "Helmet.js, CSRF tokens (csurf), rate limiting, Joi validation, signed httpOnly cookies"],
+              ["Deployment", "Single Railway service — auto-build, restart-on-failure, max 20 DB connections"],
+            ].map(([comp, detail]) => (
+              <BlackSquare key={comp} subtle title={comp} body={<p className="text-gray-700 text-sm/6 font-medium">{detail}</p>} />
+            ))}
           </div>
         </Section>
 
@@ -211,7 +198,7 @@ function Navigation() {
   return (
     <nav className="mt-6 sticky top-0 z-20 bg-white/80 backdrop-blur-md border border-gray-200 rounded-xl shadow-sm">
       <div
-        className="flex items-center justify-center gap-2 p-2 sm:p-3 overflow-x-auto custom-scrollbar"
+        className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-2 sm:py-3 overflow-x-auto custom-scrollbar"
         style={{ overscrollBehavior: 'contain', touchAction: 'pan-x pinch-zoom' }}
       >
         {navItems.map((item) => (
@@ -302,7 +289,7 @@ function Section({ id, title, children }) {
   return (
     <section id={id} className={`mt-6 sm:mt-8 md:mt-12 scroll-mt-24 rounded-2xl p-4 sm:p-6 md:p-8 ${bgColor} border border-gray-200 shadow-sm`}>
       <h2 className="mb-3 sm:mb-4 text-lg sm:text-xl md:text-2xl font-bold tracking-tight text-gray-950">{title}</h2>
-      <BlackSquare>{children}</BlackSquare>
+      {children}
     </section>
   );
 }
@@ -410,14 +397,14 @@ function Testimonial() {
 function Footer() {
   return (
     <div className="mt-12 space-y-4">
-      <div className="flex flex-col items-center justify-between gap-4 rounded-xl border border-gray-200 bg-gradient-to-r from-gray-100 via-blue-50/60 to-indigo-50/60 p-5 text-xs text-gray-600 sm:flex-row shadow-sm">
-        <div>© {new Date().getFullYear()} Unity in Diversity · Digital Assistance Platform</div>
-        <div className="flex items-center gap-3">
+      <div className="flex flex-col items-center justify-between gap-3 rounded-xl border border-gray-200 bg-gradient-to-r from-gray-100 via-blue-50/60 to-indigo-50/60 p-4 sm:p-5 text-xs text-gray-600 sm:flex-row shadow-sm">
+        <div className="text-center sm:text-left">© {new Date().getFullYear()} Unity in Diversity · Digital Assistance Platform</div>
+        <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2">
           <a href="https://www.theuid.uk" target="_blank" rel="noreferrer" className="underline decoration-dotted underline-offset-4 hover:text-gray-900">theuid.uk</a>
-          <span className="h-3 w-px bg-gray-300" />
+          <span className="hidden sm:inline h-3 w-px bg-gray-300" />
           <a href="#results" className="underline decoration-dotted underline-offset-4 hover:text-gray-900">See Results</a>
-          <span className="h-3 w-px bg-gray-300" />
-          <a href="#solution" className="underline decoration-dotted underline-offset-4 hover:text-gray-900">Architecture</a>
+          <span className="hidden sm:inline h-3 w-px bg-gray-300" />
+          <a href="#architecture" className="underline decoration-dotted underline-offset-4 hover:text-gray-900">Architecture</a>
         </div>
       </div>
       <div className="flex items-center justify-center gap-2 py-4">
